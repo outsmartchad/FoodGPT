@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.darkRanUI:hover {
+  background-color: rgb(176, 123, 17);
+}
+.darkOtherUI:hover {
+  background-color: rgb(108, 99, 17);
+}
+.ranUI {
+  line-height: 2;
+  background-color: #aec42e;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+nav a {
+  font-size: 20px;
+  text-decoration: none;
+  margin: 10px 10px;
+  padding: 13px 40px;
+  background-color: #f0e494;
+  border-radius: 8px;
+  font-weight: bold;
+  color: black;
+}
+.navbar-wrapper {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding: 30px 0px;
+  width: 100%;
+  background-color: #1c3455;
+}
+
+h1 {
+  text-align: center;
+}
+nav a:visited {
+  color: black;
+}
