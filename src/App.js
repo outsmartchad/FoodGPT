@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 import React from "react";
 import { Routes, BrowserRouter, Link, Route } from "react-router-dom";
 import HomePage from "./Homepage";
@@ -6,14 +6,16 @@ import RandomFood from "./RandomFood";
 import Collection from "./Collection";
 import Personal from "./Personal";
 import Information from "./Information";
-import "./index.css";
+import FirstTimePage from "./FirstTimePage";
+import Preference from "./Preference";
 function App() {
   return (
     <>
       <BrowserRouter>
+        {/* This is the navigation bar in our app */}
         <div className="navbar-wrapper">
           <nav>
-            <Link to="/" className="darkOtherUI">
+            <Link to="/HomePage" className="darkOtherUI">
               主頁面
             </Link>
             <Link to="/Collection" className="darkOtherUI">
@@ -31,8 +33,12 @@ function App() {
           </nav>
         </div>
 
+        {/* To create a path-to-page in our whole app 
+        <Routes> can be accessed by even other js file*/}
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<FirstTimePage />} />
+          <Route path="/Preference" element={<Preference />} />
+          <Route path="/HomePage" element={<HomePage />} />
           <Route path="/Collection" element={<Collection />} />
           <Route path="/RandomFood" element={<RandomFood />} />
           <Route path="/Information" element={<Information />} />

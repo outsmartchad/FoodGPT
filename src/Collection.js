@@ -5,7 +5,7 @@ export default function Collection() {
     <div>
       <p>This is Collection page</p>
 
-      <Link to="/">
+      <Link to="/HomePage">
         <div className="backToHomeBtn" name="angle left">
           ↩️ 返去主頁面
         </div>
