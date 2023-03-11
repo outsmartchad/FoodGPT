@@ -5,16 +5,17 @@ export default function FirstTimePage() {
   return (
     <div>
       <div>
-        <div class="card">
-          <div class="header">
+        <div className="card">
+          <div className="header">
             <p>First time?</p>
           </div>
           <img
-            width="400"
+            className="center"
+            width="500"
             src={process.env.PUBLIC_URL + "/first-time-james-franco.gif"}
             alt="First Time?"
           />
-          <div class="container">
+          <div className="container">
             <p>
               <Link to="/Preference" className="YesUI">
                 係呀
@@ -26,11 +27,11 @@ export default function FirstTimePage() {
             </p>
           </div>
 
-          <div class="container2">
+          <div className="container2">
             <h1>--FoodGPT-- 項目信息:</h1>
           </div>
 
-          <div class="container3">
+          <div className="container3">
             <p>
               FoodGPT是一種搜尋HKCC附近食品的工具，考慮到忙碌的 HKCC
               學生的需求。
