@@ -1,6 +1,7 @@
 import React from "react";
-import button from "react-bootstrap/Button";
-import { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import { useState } from "react";
+
 export default function PreferencePage() {
   // an array for type of food
   const FoodType = [
@@ -18,37 +19,27 @@ export default function PreferencePage() {
     "自助餐",
   ];
 
-  const [selection, setSelection] = useState("Food");
+  const [selectedFood, setSelectedFood] = useState(null);
 
-  // to create the type selection
-  /* useEffect(()={
-      fetch()
-
-  }) */
-  const handleClick = (evenkey) => {
-    const selectionOption = evenkey.value;
-    setSelection(selectionOption);
-    console.log(selectionOption);
+  const handleClick = (food) => {
+    setSelectedFood(food);
+    console.log(food);
   };
 
   return (
     <div>
-      {/* clickBox */}
-      <div>
-        {/* A list of food type */}
-        {FoodType.map((food, index) => (
-          <button
-            type="button"
-            key={index}
-            evenkey={food}
-            onClick={handleClick}
-          >
-            {food}
-          </button>
-        ))}
-      </div>
-      {/* conFirm button */}
-      <div>Confirm</div>
+      {/* A list of food type */}
+      {FoodType.map((food, index) => (
+        <Button
+          key={index}
+          variant="outline-primary"
+          onClick={() => handleClick(food)}
+        >
+          {food}
+        </Button>
+      ))}
+      {/* Show selected food */}
+      <Button>Confirm</Button>
     </div>
   );
 }
