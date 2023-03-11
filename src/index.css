@@ -59,3 +59,60 @@ h1 {
 nav a:visited {
   color: black;
 }
+.YesUI {
+  display: inline-block;
+  padding: 15px 45px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.NoUI {
+  display: inline-block;
+  padding: 15px 45px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #af4c4c;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+div.card {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  width: 100%;
+}
+
+div.header {
+  background-color: #4caf50;
+  color: white;
+  padding: 5px;
+  font-size: 25px;
+}
+
+div.container {
+  padding: 20px;
+}
+
+div.container2 {
+  background-color: #dddddd;
+  padding: 10px;
+}
+
+div.container3 {
+  background-color: #e6e6e6;
+  padding: 20px;
+}

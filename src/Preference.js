@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 export default function PreferencePage() {
   // an array for type of food
   const FoodType = [
-    "酒楼",
-    "港式茶餐厅",
+    "酒樓",
+    "港式茶餐廳",
     "粥店",
-    "中菜馆",
+    "中餐館",
     "快餐店",
-    "日式菜",
+    "日式料理",
     "西餐",
-    "韩式",
-    "泰国菜",
+    "韓式料理",
+    "泰式料理",
     "甜品店",
     "素食",
     "自助餐",
@@ -34,10 +34,15 @@ export default function PreferencePage() {
   return (
     <div>
       {/* clickBox */}
-      <div onClick={handleClick}>
+      <div>
         {/* A list of food type */}
         {FoodType.map((food, index) => (
-          <button type="button" key={index} evenkey={food}>
+          <button
+            type="button"
+            key={index}
+            evenkey={food}
+            onClick={handleClick}
+          >
             {food}
           </button>
         ))}
