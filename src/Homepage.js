@@ -25,11 +25,11 @@ const areas = [
   "Yuen Long",
 ];
 export default function HomePage() {
-  // Default value for the dropdown: Area 
-  // setSelectedOption is a arrow function 
+  // Default value for the dropdown: Area
+  // setSelectedOption is a arrow function
   // that set the default "state" to be the selectionOption's value
   const [selectedOption, setSelectedOption] = useState("Area");
-  
+
   // change the dropdown's title whenever the user selected other area
   const handleSelectChange = (eventKey) => {
     const selectedValue = eventKey;
@@ -51,10 +51,12 @@ export default function HomePage() {
           ))}
         </DropdownButton>
       </div>
-
+      {/* Search Bar class */}
       <div>
         <h1>search bar here</h1>
       </div>
+      {/* new restaurant,  eat info, eat comment, ranking class*/}
+      {/*  restaurant info generator */}
       <p>This is FoodGPT Home page</p>
     </div>
   );
