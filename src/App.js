@@ -8,6 +8,9 @@ import Personal from "./Personal";
 import Information from "./Information";
 import FirstTimePage from "./FirstTimePage";
 import Preference from "./Preference";
+import NewRestaurant from "./NewRestaurant";
+import EatInfo from "./EatInfo";
+import RankingClas from "./RankingClass";
 function App() {
   return (
     <>
@@ -43,6 +46,9 @@ function App() {
           <Route path="/RandomFood" element={<RandomFood />} />
           <Route path="/Information" element={<Information />} />
           <Route path="/Personal" element={<Personal />} />
+          <Route path="/NewRestaurant" element={<NewRestaurant />} />
+          <Route path="/EatInfo" element={<EatInfo />} />
+          <Route path="/RankingClass" element={<RankingClas />} />          
           <Route path="*" element={<p>找不到頁面</p>} />
         </Routes>
       </BrowserRouter>

@@ -2,6 +2,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 // array for storing all the area in Hong Kong
 const areas = [
@@ -51,13 +52,69 @@ export default function HomePage() {
           ))}
         </DropdownButton>
       </div>
-      {/* Search Bar class */}
-      <div>
-        <h1>search bar here</h1>
+      <div className="card">
+
+          <div className="header">
+          {/* Search Bar class */}
+          <h1>search bar here</h1>
+          </div>
+
+          <div className="container">
+           {/* new restaurant,  eat info, eat comment, ranking class*/}
+           <p>
+           <Link to="/NewRestaurant" >
+           <img
+            width="100"
+            src={process.env.PUBLIC_URL + "/c1.png"}
+            alt="c1"
+          />
+          
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Link to="/EatInfo" >
+            <img
+            width="60"
+            src={process.env.PUBLIC_URL + "/c2.png"}
+            alt="c2"
+          />
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Link to="/RankingClass" >
+            <img
+            width="80"
+            src={process.env.PUBLIC_URL + "/c3.png"}
+            alt="c3"
+          />
+            </Link>
+          </p> 
+          </div>
+
+          <div className="container2">
+          {/*  restaurant info generator */}
+          <div className="rcorners1">############################################################</div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">############################################################</div> 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">############################################################</div> 
+          </div>
+
+          <div className="container2">
+          {/*  restaurant info generator */}
+          <div className="rcorners1">############################################################</div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">############################################################</div> 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
+          <div className="rcorners1">############################################################</div>          
+          </div>
+          <div className="container2">
+          {/*  restaurant info generator */}
+          <div className="rcorners1">############################################################</div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">############################################################</div> 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
+          <div className="rcorners1">############################################################</div>          
+          </div>
       </div>
-      {/* new restaurant,  eat info, eat comment, ranking class*/}
-      {/*  restaurant info generator */}
-      <p>This is FoodGPT Home page</p>
     </div>
   );
 }

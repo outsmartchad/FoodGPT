@@ -123,3 +123,22 @@ div.container3 {
   margin-right: auto;
   width: 50%;
 }
+
+.rcorners1 {
+  border-radius: 25px;
+  border: 2px solid #8AC007;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  margin: auto;
+  display: inline-block;
+}
+
+.rcorners2 {
+  border-radius: 25px;
+  border: 2px solid #8AC007;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  margin: auto;
+}
