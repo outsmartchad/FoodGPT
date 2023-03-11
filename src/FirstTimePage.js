@@ -7,7 +7,7 @@ export default function FirstTimePage() {
       <div>
         <div class="card">
          <div class="header">
-            <h1>First time?</h1>
+            <p>First time?</p>
          </div>
 
           <div class="container">
@@ -16,7 +16,17 @@ export default function FirstTimePage() {
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <Link to="/Homepage" className="NoUI">唔係</Link>
              </p>
-           </div>
+          </div>
+
+          <div class="container2">
+            <h1>--FoodGPT--  項目信息:</h1>
+         </div>
+
+         <div class="container3">
+            <p>FoodGPT是一種搜尋HKCC附近食品的工具，考慮到忙碌的 HKCC 學生的需求。 它提供了當地餐館和食品店的綜合數據庫，包括有關菜單項目、價格等的詳細信息。此外，該應用程序具有多種過濾器和搜索選項，允許用戶根據他們的特定偏好和要求定制他們的食物搜索選項，使他們能夠輕鬆準確地找到正在尋找的東西。是尋求快速簡便地尋找美食的 HKCC 學生的理想解決方案。</p>
+            <p>**FoodGPT 向所有用戶免費開放</p>
+         </div>
+
         </div>
       </div>
     </div>
