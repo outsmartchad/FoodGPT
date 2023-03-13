@@ -5,7 +5,6 @@ export default function FirstTimePage() {
   return (
     <div>
       <div>
-        <div className="card">
           <div className="header">
             <p>First time?</p>
           </div>
@@ -41,7 +40,6 @@ export default function FirstTimePage() {
             <p>**FoodGPT 向所有用戶免費開放</p>
           </div>
         </div>
-      </div>
     </div>
   );
 }

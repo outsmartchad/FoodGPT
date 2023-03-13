@@ -52,7 +52,7 @@ export default function HomePage() {
           ))}
         </DropdownButton>
       </div>
-      <div className="card">
+      
         <div className="header">
           {/* Search Bar class */}
           <h1>search bar here</h1>
@@ -93,46 +93,36 @@ export default function HomePage() {
         <div className="container2">
           {/*  restaurant info generator */}
           <div className="rcorners1">
-            ############################################################
           </div>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div className="rcorners1">
-            ############################################################
           </div>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div className="rcorners1">
-            ############################################################
           </div>
         </div>
         <div className="container2">
           {/*  restaurant info generator */}
           <div className="rcorners1">
-            ############################################################
           </div>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div className="rcorners1">
-            ############################################################
           </div>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div className="rcorners1">
-            ############################################################
           </div>
         </div>
         <div className="container2">
           {/*  restaurant info generator */}
           <div className="rcorners1">
-            ############################################################
           </div>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div className="rcorners1">
-            ############################################################
           </div>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div className="rcorners1">
-            ############################################################
           </div>
         </div>
-      </div>
     </div>
   );
 }

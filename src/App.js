@@ -18,19 +18,23 @@ function App() {
         {/* This is the navigation bar in our app */}
         <div className="navbar-wrapper">
           <nav>
-            <Link to="/HomePage" className="darkOtherUI">
+            <Link to="/HomePage" className="CUI">
               主頁面
             </Link>
-            <Link to="/Collection" className="darkOtherUI">
+            <Link to="/Collection" className="CUI">
               收藏
             </Link>
-            <Link to="/RandomFood" className="darkRanUI ranUI">
-              是但一餐啦...
+            <Link to="/RandomFood" className="AUI">
+            <img
+                width="100"
+                src={process.env.PUBLIC_URL + "/foodrandom.gif"}
+                alt="c1"
+              />
             </Link>
-            <Link to="/Information" className="darkOtherUI">
+            <Link to="/Information" className="CUI">
               消息
             </Link>
-            <Link to="/Personal" className="darkOtherUI">
+            <Link to="/Personal" className="CUI">
               個人資料
             </Link>
           </nav>

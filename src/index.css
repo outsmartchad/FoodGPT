@@ -3,12 +3,7 @@ body {
   padding: 0;
   padding-bottom: 60px;
 }
-.darkRanUI:hover {
-  background-color: rgb(176, 123, 17);
-}
-.darkOtherUI:hover {
-  background-color: rgb(108, 99, 17);
-}
+
 .ranUI {
   line-height: 2;
   background-color: #aec42e;
@@ -35,7 +30,7 @@ nav a {
   position: fixed;
   bottom: 0;
   text-align: center;
-  padding: 30px 0px;
+  padding: 10px 0px;
   width: 100%;
   background-color: #1c3455;
 }
@@ -75,6 +70,14 @@ nav a:visited {
   box-shadow: 0 9px #999;
 }
 
+.YesUI:hover {background-color: #3e8e41}
+
+.YesUI:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .NoUI {
   display: inline-block;
   padding: 15px 45px;
@@ -90,6 +93,14 @@ nav a:visited {
   box-shadow: 0 9px #999;
 }
 
+.NoUI:hover {background-color: #3e8e41}
+
+.NoUI:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 div.card {
   width: 250px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -103,20 +114,28 @@ div.header {
   color: white;
   padding: 5px;
   font-size: 25px;
+  text-align: center;
+  width: 100%;
 }
 
 div.container {
   padding: 20px;
+  text-align: center;
+  width: 100%;
 }
 
 div.container2 {
   background-color: #dddddd;
   padding: 10px;
+  text-align: center;
+  width: 100%;
 }
 
 div.container3 {
   background-color: #e6e6e6;
   padding: 20px;
+  text-align: center;
+  width: 100%;
 }
 
 .center {
@@ -124,6 +143,7 @@ div.container3 {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  text-align: center;
 }
 
 .rcorners1 {
@@ -143,4 +163,31 @@ div.container3 {
   width: 200px;
   height: 150px;
   margin: auto;
+}
+
+.CUI {
+  display: inline-block;
+  padding: 10px 35px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #be8627;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.CUI:hover {background-color: #3e8e41}
+
+.CUI:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.AUI {
+  background-color: #1c3455;
 }
