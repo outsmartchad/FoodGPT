@@ -146,6 +146,62 @@ export default function RandomFood() {
       price: 68,
       restaurant: "Caliburger",
     },
+    {
+      id: 23,
+      type: "泰式料理",
+      name: "咖喱蟹蓋飯",
+      price: 60,
+      restaurant: "泰好味",
+    },
+    {
+      id: 24,
+      type: "泰式料理",
+      name: "冬蔭功湯麵",
+      price: 50,
+      restaurant: "泰一番",
+    },
+    {
+      id: 25,
+      type: "港式茶餐廳",
+      name: "豬扒包",
+      price: 20,
+      restaurant: "金華冰廳",
+    },
+    {
+      id: 26,
+      type: "日式料理",
+      name: "鰻魚飯",
+      price: 90,
+      restaurant: "日出軒",
+    },
+    {
+      id: 27,
+      type: "港式快餐",
+      name: "香脆雞扒煲仔飯",
+      price: 58,
+      restaurant: "大家樂",
+    },
+    {
+      id: 28,
+      type: "自助餐",
+      name: "自助鐵板燒",
+      price: 75,
+      restaurant: "新都城海鮮酒家",
+    },
+    {
+      id: 29,
+      type: "泰式料理",
+      name: "炒豬肉跳虎皮蝦配麵",
+      price: 72,
+      restaurant: "泰麵館",
+    },
+    {
+      id: 30,
+      type: "港式茶餐廳",
+      name: "芝士豬柳脆皮焗飯",
+      price: 58,
+      restaurant: "金鳳茶餐廳",
+    },
   ];
   const [randomIndex, setRandomIndex] = useState(0);
   const [clicked, setClicked] = useState(false);
@@ -153,16 +209,21 @@ export default function RandomFood() {
     const randindex = Math.floor(Math.random() * foodList.length);
     setRandomIndex(randindex);
     setClicked(true);
-    console.log(foodList[randindex].name);
+    console.log(foodList[randindex]);
   }
   return (
     <div>
-      <p>This is Random Food Generator Page</p>
-      <Link to="/HomePage">
-        <div className="backToHomeBtn">↩️ 返去主頁面</div>
-      </Link>
-      <h1>Don't know eat what?</h1>
-      <h2>Press this button</h2>
+      <div>
+        <Link to="/HomePage">
+          <div className="backToHomeBtn">↩️ 返去主頁面</div>
+        </Link>
+      </div>
+      <div>
+        <h1>唔知食咩好?</h1>
+        <br></br>
+        <br></br>
+        <h2>撳呢個就係我哋幫你揀!</h2>
+      </div>
       <Button onClick={RandomFoodGenerator}>Food</Button>
       {clicked && (
         <div>
