@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import { Form } from "react-bootstrap";
 import { useState } from "react";
 
 export default function PreferencePage() {
@@ -18,28 +18,38 @@ export default function PreferencePage() {
     "素食",
     "自助餐",
   ];
+  const [selectedPreference, setSelectedPreference] = useState([]);
 
-  const [selectedFood, setSelectedFood] = useState(null);
+  function handleCheckboxChange(food, checked) {
+    if (checked) {
+      setSelectedPreference((prevSelected) => [...prevSelected, food]);
+    } else {
+      setSelectedPreference((prevSelected) =>
+        prevSelected.filter((selected) => selected !== food)
+      );
+    }
+  }
 
-  const handleClick = (food) => {
-    setSelectedFood(food);
-    console.log(food);
-  };
+  function handleConfirm(arrSelected) {
+    arrSelected.map((food, index) => {
+      console.log("number " + index + ": " + food);
+    });
+  }
 
   return (
     <div>
       {/* A list of food type */}
       {FoodType.map((food, index) => (
-        <Button
+        <Form.Check
           key={index}
-          variant="outline-primary"
-          onClick={() => handleClick(food)}
-        >
-          {food}
-        </Button>
+          type="checkbox"
+          inline
+          label={food}
+          onChange={(e) => handleCheckboxChange(food, e.target.checked)}
+        />
       ))}
       {/* Show selected food */}
-      <Button>Confirm</Button>
+      <button onClick={() => handleConfirm(selectedPreference)}>Confirm</button>
     </div>
   );
 }

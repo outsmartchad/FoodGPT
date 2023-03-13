@@ -53,67 +53,85 @@ export default function HomePage() {
         </DropdownButton>
       </div>
       <div className="card">
-
-          <div className="header">
+        <div className="header">
           {/* Search Bar class */}
           <h1>search bar here</h1>
-          </div>
+        </div>
 
-          <div className="container">
-           {/* new restaurant,  eat info, eat comment, ranking class*/}
-           <p>
-           <Link to="/NewRestaurant" >
-           <img
-            width="100"
-            src={process.env.PUBLIC_URL + "/c1.png"}
-            alt="c1"
-          />
-          
+        <div className="container">
+          {/* new restaurant,  eat info, eat comment, ranking class*/}
+          <p>
+            <Link to="/NewRestaurant">
+              <img
+                width="100"
+                src={process.env.PUBLIC_URL + "/c1.png"}
+                alt="c1"
+              />
             </Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/EatInfo" >
-            <img
-            width="60"
-            src={process.env.PUBLIC_URL + "/c2.png"}
-            alt="c2"
-          />
+            <Link to="/EatInfo">
+              <img
+                width="60"
+                src={process.env.PUBLIC_URL + "/c2.png"}
+                alt="c2"
+              />
             </Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/RankingClass" >
-            <img
-            width="80"
-            src={process.env.PUBLIC_URL + "/c3.png"}
-            alt="c3"
-          />
+            <Link to="/RankingClass">
+              <img
+                width="80"
+                src={process.env.PUBLIC_URL + "/c3.png"}
+                alt="c3"
+              />
             </Link>
-          </p> 
-          </div>
-
-          <div className="container2">
+          </p>
+        </div>
+        {/* restaurant info class */}
+        <div>
+          <h2>餐廳資訊</h2>
+        </div>
+        <div className="container2">
           {/*  restaurant info generator */}
-          <div className="rcorners1">############################################################</div>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div className="rcorners1">############################################################</div> 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div className="rcorners1">############################################################</div> 
+          <div className="rcorners1">
+            ############################################################
           </div>
-
-          <div className="container2">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">
+            ############################################################
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">
+            ############################################################
+          </div>
+        </div>
+        <div className="container2">
           {/*  restaurant info generator */}
-          <div className="rcorners1">############################################################</div>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div className="rcorners1">############################################################</div> 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
-          <div className="rcorners1">############################################################</div>          
+          <div className="rcorners1">
+            ############################################################
           </div>
-          <div className="container2">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">
+            ############################################################
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">
+            ############################################################
+          </div>
+        </div>
+        <div className="container2">
           {/*  restaurant info generator */}
-          <div className="rcorners1">############################################################</div>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div className="rcorners1">############################################################</div> 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
-          <div className="rcorners1">############################################################</div>          
+          <div className="rcorners1">
+            ############################################################
           </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">
+            ############################################################
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div className="rcorners1">
+            ############################################################
+          </div>
+        </div>
       </div>
     </div>
   );
