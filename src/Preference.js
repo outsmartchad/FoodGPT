@@ -2,25 +2,31 @@ import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-export default function PreferencePage() {
-  // an array for type of food
+import "./PreferencePage.css"; 
 
+function chunk(arr, size) {
+  return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
+    arr.slice(i * size, i * size + size)
+  );
+}
+
+export default function PreferencePage() {
   const [foodType, setFoodType] = useState([]);
+  const [selectedPreference, setSelectedPreference] = useState([]);
 
   useEffect(() => {
     fetch("https://manofdiligence.github.io/FoodType.json")
       .then((response) => response.json())
       .then((data) => setFoodType(data));
   }, []);
-  const [selectedPreference, setSelectedPreference] = useState([]);
 
-  function handleCheckboxChange(food, checked) {
-    if (checked) {
-      setSelectedPreference((prevSelected) => [...prevSelected, food]);
-    } else {
+  function handleButtonClick(food) {
+    if (selectedPreference.includes(food)) {
       setSelectedPreference((prevSelected) =>
         prevSelected.filter((selected) => selected !== food)
       );
+    } else {
+      setSelectedPreference((prevSelected) => [...prevSelected, food]);
     }
   }
 
@@ -32,25 +38,30 @@ export default function PreferencePage() {
 
   return (
     <div>
-      {/* A list of food type */}
       <div className="header">
-        {/* Search Bar class */}
         <h1>請選擇您喜愛的料理:</h1>
       </div>
 
       <div className="container2">
-        {/*  restaurant info generator */}
-        {foodType.map((type) => (
-          <Form.Check
-            type="checkbox"
-            key={type.id}
-            label={type.type}
-            onChange={(e) => handleCheckboxChange(type.type, e.target.checked)}
-          />
+        
+        {chunk(foodType, 3).map((row, index) => (
+          <div key={index} className="button-row">
+            {row.map((type) => (
+              <button
+                className={`food-button ${
+                  selectedPreference.includes(type.type) && "selected"
+                }`}
+                key={type.id}
+                onClick={() => handleButtonClick(type.type)}
+              >
+                {type.type}
+              </button>
+            ))}
+          </div>
         ))}
       </div>
+
       <div className="container2">
-        {/* Show selected food */}
         {selectedPreference.length === 0 ? (
           <div>
             <button
@@ -63,9 +74,7 @@ export default function PreferencePage() {
           </div>
         ) : (
           <div>
-            <Link
-              to="/Homepage" /* onClick={()=>{checkSelected(selectedPreference)} */
-            >
+            <Link to="/Homepage">
               <button
                 onClick={() => handleConfirm(selectedPreference)}
                 className="YesUI"
