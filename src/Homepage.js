@@ -102,15 +102,15 @@ export default function HomePage() {
       <div>
         <h2>餐廳資訊</h2>
       </div>
-      <div className="">
+      <div className="container2">
         {/*  restaurant info generator */}
         {contain.map((element, index) => {
           /* <img src={element.photo.image.small.url} alt="" /> */
-
           <p id={element.location_id} key={index}>
             {element.name}
           </p>;
         })}
+        <div className="rcorners1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>;
       </div>
       <div className="container2">
         {/*  restaurant info generator */}

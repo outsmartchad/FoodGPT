@@ -2,10 +2,17 @@ import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./PreferencePage.css";
+function chunk(arr, size) {
+  return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
+    arr.slice(i * size, i * size + size)
+  );
+}
 export default function PreferencePage() {
   // an array for type of food
   // foodType is a empty array by default
   const [foodType, setFoodType] = useState([]);
+  const [selectedPreference, setSelectedPreference] = useState([]);
   // getting the array of data from FoodType.json
   // you can just see the array, by pasting the link to your browser
   useEffect(() => {
@@ -15,17 +22,13 @@ export default function PreferencePage() {
   }, []);
 
   // create a new array and put the newly selected foodtype into the new array
-  function handleCheckboxChange(food, checked) {
-    // if clicked the checkbox, create new array,
-    // put the previous array and the checked box's elemnt into a new array
-    if (checked) {
-      setSelectedPreference((prevSelected) => [...prevSelected, food]);
-    }
-    // if not, search only the selected food from the previous array
-    else {
+  function handleButtonClick(food) {
+    if (selectedPreference.includes(food)) {
       setSelectedPreference((prevSelected) =>
         prevSelected.filter((selected) => selected !== food)
       );
+    } else {
+      setSelectedPreference((prevSelected) => [...prevSelected, food]);
     }
   }
   // just for console out to check if we get the value
