@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 export default function PreferencePage() {
   // an array for type of food
 
@@ -51,12 +51,30 @@ export default function PreferencePage() {
       </div>
       <div className="container2">
         {/* Show selected food */}
-        <button
-          onClick={() => handleConfirm(selectedPreference)}
-          className="YesUI"
-        >
-          Confirm
-        </button>
+        {selectedPreference.length === 0 ? (
+          <div>
+            <button
+              onClick={() => handleConfirm(selectedPreference)}
+              className="YesUI"
+            >
+              Confirm
+            </button>
+            <h2>Please choose at least one choice!</h2>
+          </div>
+        ) : (
+          <div>
+            <Link
+              to="/Homepage" /* onClick={()=>{checkSelected(selectedPreference)} */
+            >
+              <button
+                onClick={() => handleConfirm(selectedPreference)}
+                className="YesUI"
+              >
+                Confirm
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
