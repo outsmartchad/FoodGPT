@@ -1,0 +1,23 @@
+.food-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #555;
+  transition: all 0.2s ease-in-out;
+}
+
+.food-button:hover {
+  transform: scale(1.05);
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #6fa2ff;
+  color: white;
+}
