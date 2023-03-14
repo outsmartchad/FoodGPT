@@ -5,7 +5,7 @@ export default function Information() {
     <div>
       <p>This is Information page</p>
       <Link to="/HomePage">
-        <div className="backToHomeBtn">↩️ 返去主頁面</div>
+        <div className="backToHomeBtn">↩️ 返去主頁面</div>\
       </Link>
     </div>
   );
