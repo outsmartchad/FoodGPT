@@ -1,24 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 
 export default function PreferencePage() {
   // an array for type of food
-  
-  const FoodType = [
-    "酒樓",
-    "港式茶餐廳",
-    "粥店",
-    "中餐館",
-    "快餐店",
-    "日式料理",
-    "西餐",
-    "韓式料理",
-    "泰式料理",
-    "甜品店",
-    "素食",
-    "自助餐",
-  ];
+
+  const [foodType, setFoodType] = useState([]);
+
+  useEffect(() => {
+    fetch("https://manofdiligence.github.io/FoodType.json")
+      .then((response) => response.json())
+      .then((data) => setFoodType(data));
+  }, []);
   const [selectedPreference, setSelectedPreference] = useState([]);
 
   function handleCheckboxChange(food, checked) {
@@ -46,22 +39,25 @@ export default function PreferencePage() {
       </div>
 
       <div className="container2">
-          {/*  restaurant info generator */}
-          {FoodType.map((food, index) => (
-        <Form.Check
-          key={index}
-          type="checkbox"
-          inline
-          label={food}
-          onChange={(e) => handleCheckboxChange(food, e.target.checked)}
-        />
-      ))}
+        {/*  restaurant info generator */}
+        {foodType.map((type) => (
+          <Form.Check
+            type="checkbox"
+            key={type.id}
+            label={type.type}
+            onChange={(e) => handleCheckboxChange(type.type, e.target.checked)}
+          />
+        ))}
       </div>
       <div className="container2">
-      {/* Show selected food */}
-      <button onClick={() => handleConfirm(selectedPreference)} className="YesUI">Confirm</button>
+        {/* Show selected food */}
+        <button
+          onClick={() => handleConfirm(selectedPreference)}
+          className="YesUI"
+        >
+          Confirm
+        </button>
       </div>
-
     </div>
   );
 }
