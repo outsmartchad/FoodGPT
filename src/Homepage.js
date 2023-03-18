@@ -14,18 +14,18 @@ export default function HomePage() {
   const [area, setArea] = useState([]);
   const [data, setData] = useState([]);
   useEffect(() => {
+    fetch("https://manofdiligence.github.io/Restaurant.json")
+      .then((response) => response.json())
+      .then((result) => setData(result))
+      .catch((err) => console.error(err));
+  }, []);
+  useEffect(() => {
     fetch("https://manofdiligence.github.io/Areas.json")
       .then((response) => response.json())
       .then((result) => setArea(result))
       .catch((err) => console.error(err));
   }, []);
 
-  useEffect(() => {
-    fetch("https://manofdiligence.github.io/Restaurant.json")
-      .then((response) => response.json())
-      .then((result) => setData(result))
-      .catch((err) => console.error(err));
-  }, []);
   // change the dropdown's title whenever the user selected other area
   const handleSelectChange = (eventKey) => {
     const selectedValue = eventKey;
@@ -89,7 +89,6 @@ export default function HomePage() {
         {data.map((item, index) => (
           <div key={index}>
             <h2>{item.name}</h2>
-            <p>{item.image}</p>
             <p>{item.area}</p>
           </div>
         ))}

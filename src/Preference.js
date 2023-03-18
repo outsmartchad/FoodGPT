@@ -50,12 +50,11 @@ export default function PreferencePage() {
             {row.map((type) => (
               <button
                 className={`food-button ${
-                  selectedPreference.includes(type.type) && "selected"
+                  selectedPreference.includes(type) && "selected"
                 }`}
-                key={type.id}
-                onClick={() => handleButtonClick(type.type)}
+                onClick={() => handleButtonClick(type)}
               >
-                {type.type}
+                {type}
               </button>
             ))}
           </div>
