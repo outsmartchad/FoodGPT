@@ -70,7 +70,9 @@ nav a:visited {
   box-shadow: 0 9px #999;
 }
 
-.YesUI:hover {background-color: #3e8e41}
+.YesUI:hover {
+  background-color: #3e8e41;
+}
 
 .YesUI:active {
   background-color: #3e8e41;
@@ -93,7 +95,9 @@ nav a:visited {
   box-shadow: 0 9px #999;
 }
 
-.NoUI:hover {background-color: #3e8e41}
+.NoUI:hover {
+  background-color: #3e8e41;
+}
 
 .NoUI:active {
   background-color: #3e8e41;
@@ -110,7 +114,7 @@ div.card {
 }
 
 div.header {
-  background-color: #4caf50;
+  background-color: rgb(255, 253, 253);
   color: white;
   padding: 5px;
   font-size: 25px;
@@ -180,7 +184,9 @@ div.container3 {
   box-shadow: 0 9px #999;
 }
 
-.CUI:hover {background-color: #3e8e41}
+.CUI:hover {
+  background-color: #3e8e41;
+}
 
 .CUI:active {
   background-color: #3e8e41;

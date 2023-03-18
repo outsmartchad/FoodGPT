@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import "./SearchList.css";
-import getRestaurants from "./restaurantData";
+/* import "./SearchList.css"; */
 
-const restaurants = getRestaurants();
+export default function AdvancedSearch() {
+  /* import getRestaurants from "./restaurantData"; */
 
-const SearchList = () => {
+  /* const restaurants = getRestaurants(); */
+
+  /* const AdvancedSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (event) => {
@@ -13,10 +15,10 @@ const SearchList = () => {
 
   const filteredRestaurants = restaurants.filter((restaurant) =>
     restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ); */
 
-  return (
-    <div className="search-list">
+  return {
+    /* <div className="search-list">
       <input
         type="text"
         placeholder="Search restaurants"
@@ -37,8 +39,6 @@ const SearchList = () => {
           </li>
         ))}
       </ul>
-    </div>
-  );
-};
-
-export default SearchList;
+    </div> */
+  };
+}
