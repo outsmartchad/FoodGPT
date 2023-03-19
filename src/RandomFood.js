@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
+import "./randomFood.css"; // Import the CSS file
+
 export default function RandomFood() {
   const [foodList, setFoodList] = useState([]);
   useEffect(() => {
@@ -17,6 +19,7 @@ export default function RandomFood() {
     setClicked(true);
     console.log(foodList[randindex]);
   }
+
   return (
     <div>
       <div>
@@ -33,6 +36,16 @@ export default function RandomFood() {
       <Button onClick={RandomFoodGenerator}>Food</Button>
       {clicked && (
         <div>
+          <div id="food-animation">
+            {foodList.map((food, index) => (
+              <div key={index} className="food-bubble">
+                {food.name}
+              </div>
+            ))}
+            <div className="food-bubble food-bubble-random">
+              {foodList[randomIndex].name}
+            </div>
+          </div>
           <div id="name">{foodList[randomIndex].name}</div>
           <div id="price">This Price is ${foodList[randomIndex].price}</div>
           <div id="restaurant">

@@ -1,0 +1,54 @@
+#food-animation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.food-bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 128, 255);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  animation-name: drop;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.food-bubble-random {
+  animation-name: rebound;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes rebound {
+  0% {
+    transform: translateY(100vh);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
+}
