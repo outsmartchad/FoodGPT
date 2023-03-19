@@ -47,7 +47,6 @@ export default function HomePage() {
           ))}
         </DropdownButton>
       </div>
-
       <div className="header">
         {/* Search Bar class */}
 
@@ -59,7 +58,6 @@ export default function HomePage() {
           />
         </Link>
       </div>
-
       <div className="container2">
         {/* new restaurant,  eat info, eat comment, ranking class*/}
         <p>
@@ -84,26 +82,14 @@ export default function HomePage() {
       <div>
         <h2>餐廳資訊</h2>
       </div>
-      <div className="container2">
-        {/*  restaurant info generator */}
-        {data.map((item, index) => (
-          <div key={index}>
-            <h2>{item.name}</h2>
-            <p>{item.area}</p>
-          </div>
-        ))}
-        <div className="rcorners1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>;
-      </div>
-      <div className="container2">
-        {/*  restaurant info generator */}
-        <div className="rcorners1"></div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </div>
-      <div className="container2">
-        {/*  restaurant info generator */}
-        <div className="rcorners1"></div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </div>
+      {/*  restaurant info generator */}
+      {data.map((item, index) => (
+        <div key={index} id={item.id} className="container2">
+          <h2>{item.Name}</h2>
+          <img src={item.Image} alt="rest photo" width="300px" />
+          <p>{item.Area}</p>
+        </div>
+      ))}
     </div>
   );
 }
