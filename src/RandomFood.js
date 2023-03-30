@@ -22,17 +22,13 @@ export default function RandomFood() {
 
   return (
     <div>
-      <div>
-        <Link to="/HomePage">
-          <div className="backToHomeBtn">↩️ 返去主頁面</div>
-        </Link>
-      </div>
-      <div>
+      <div className="header2">
         <h1>唔知食咩好?</h1>
-        <br></br>
-        <br></br>
-        <h2>撳呢個就係我哋幫你揀!</h2>
       </div>
+      <div className="container2">
+      <h2>撳呢個就係我哋幫你揀!</h2>
+      </div>
+      <div className="container2">
       <Button onClick={RandomFoodGenerator}>Food</Button>
       {clicked && (
         <div>
@@ -53,6 +49,12 @@ export default function RandomFood() {
           </div>
         </div>
       )}
+      </div>
+      <div className="header">
+      <Link to="/HomePage">
+        <div className="backToHomeBtn">↩️ 返去主頁面</div>
+      </Link>
+      </div>
     </div>
   );
 }

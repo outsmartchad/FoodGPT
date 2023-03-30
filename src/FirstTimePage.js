@@ -5,7 +5,7 @@ export default function FirstTimePage() {
   return (
     <div>
       <div>
-          <div className="header">
+          <div className="header2">
             <p>First time?</p>
           </div>
           <img

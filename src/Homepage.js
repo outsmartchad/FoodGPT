@@ -59,18 +59,14 @@ export default function HomePage() {
         </Link>
       </div>
       <div className="container2">
-        {/* new restaurant,  eat info, eat comment, ranking class*/}
+        {/* near restaurant, restaurant rank*/}
         <p>
-          <Link to="/NewRestaurant">
+          <Link to="/NearRestaurant">
             <img
               width="100"
               src={process.env.PUBLIC_URL + "/c1.png"}
               alt="c1"
             />
-          </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link to="/EatInfo">
-            <img width="60" src={process.env.PUBLIC_URL + "/c2.png"} alt="c2" />
           </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <Link to="/RankingClass">

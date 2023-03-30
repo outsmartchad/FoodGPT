@@ -40,7 +40,7 @@ export default function PreferencePage() {
 
   return (
     <div>
-      <div className="header">
+      <div className="header2">
         <h1>請選擇您喜愛的料理:</h1>
       </div>
 

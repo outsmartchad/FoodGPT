@@ -43,7 +43,6 @@ nav a {
   padding: 13px 40px;
   top: 0;
   left: 0;
-  position: absolute;
   text-align: center;
   width: 300px;
   color: #fff;
@@ -116,6 +115,15 @@ div.card {
 div.header {
   background-color: rgb(255, 253, 253);
   color: white;
+  padding: 5px;
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+div.header2 {
+  background-color: rgb(50, 235, 62);
+  color: rgb(0, 0, 0);
   padding: 5px;
   font-size: 25px;
   text-align: center;
@@ -212,4 +220,15 @@ div.container3 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  background-color: #1c3455; 
+  position: fixed;
+  bottom: 0;
 }
