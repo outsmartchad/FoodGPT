@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-export default function RankingClass() {
+export default function Nearestaurant() {
   return (
     <div>
       <div className="header2">
-        <h1>Ranking Class</h1>
+        <h1>Near Restaurant</h1>
       </div>
       <div className="container2">
       </div>
