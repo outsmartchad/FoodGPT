@@ -8,16 +8,39 @@ export default function RandomFood() {
   useEffect(() => {
     fetch("https://manofdiligence.github.io/FoodList.json")
       .then((response) => response.json())
-      .then((data) => setFoodList(data));
+      .then((data) => {
+        setFoodList(data);
+        setBubbleColors(
+          data.map(() => {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+          })
+        );
+      });
   }, []);
 
+  const [bubbleColors, setBubbleColors] = useState([]);
   const [randomIndex, setRandomIndex] = useState(0);
   const [clicked, setClicked] = useState(false);
+  const [drawnFood, setDrawnFood] = useState(null);
+
   function RandomFoodGenerator() {
     const randindex = Math.floor(Math.random() * foodList.length);
     setRandomIndex(randindex);
+    setDrawnFood(foodList[randindex]);
     setClicked(true);
-    console.log(foodList[randindex]);
+    const foodBubbles = document.querySelectorAll(".food-bubble");
+    foodBubbles.forEach((bubble) => {
+      bubble.classList.remove("food-bubble-hidden");
+      bubble.classList.add("food-bubble-reset");
+    });
+    setTimeout(() => {
+      foodBubbles.forEach((bubble) => {
+        bubble.classList.remove("food-bubble-reset");
+      });
+    }, 1000);
   }
 
   return (
@@ -26,34 +49,42 @@ export default function RandomFood() {
         <h1>唔知食咩好?</h1>
       </div>
       <div className="container2">
-      <h2>撳呢個就係我哋幫你揀!</h2>
+        <h2>撳呢個就係我哋幫你揀!</h2>
+        {drawnFood && (
+          <div>
+            <div id="name">{drawnFood.name}</div>
+            <div id="price">This Price is ${drawnFood.price}</div>
+            <div id="restaurant">This food is from {drawnFood.restaurant}</div>
+          </div>
+        )}
       </div>
       <div className="container2">
-      <Button onClick={RandomFoodGenerator}>Food</Button>
-      {clicked && (
-        <div>
-          <div id="food-animation">
-            {foodList.map((food, index) => (
-              <div key={index} className="food-bubble">
-                {food.name}
-              </div>
-            ))}
-            <div className="food-bubble food-bubble-random">
-              {foodList[randomIndex].name}
+        <Button onClick={RandomFoodGenerator}>Food</Button>
+        {clicked && (
+          <div>
+            <div id="food-animation">
+              {foodList.map((food, index) =>
+                // Conditionally render the food bubble based on whether it has been drawn or not
+                (drawnFood && food === drawnFood) || !drawnFood ? (
+                  <div
+                    key={index}
+                    className={`food-bubble${
+                      food === drawnFood ? " food-bubble-random" : ""
+                    }`}
+                    style={{ backgroundColor: bubbleColors[index] }}
+                  >
+                    {food.name}
+                  </div>
+                ) : null
+              )}
             </div>
           </div>
-          <div id="name">{foodList[randomIndex].name}</div>
-          <div id="price">This Price is ${foodList[randomIndex].price}</div>
-          <div id="restaurant">
-            This food is from {foodList[randomIndex].restaurant}
-          </div>
-        </div>
-      )}
+        )}
       </div>
       <div className="header">
-      <Link to="/HomePage">
-        <div className="backToHomeBtn">↩️ 返去主頁面</div>
-      </Link>
+        <Link to="/HomePage">
+          <div className="backToHomeBtn">↩️ 返去主頁面</div>
+        </Link>
       </div>
     </div>
   );

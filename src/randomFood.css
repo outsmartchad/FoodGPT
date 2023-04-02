@@ -4,6 +4,14 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 50px);
+}
+.food-bubble-hidden {
+  display: none;
 }
 
 .food-bubble {
@@ -22,6 +30,10 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .food-bubble-random {
@@ -33,11 +45,11 @@
 }
 
 @keyframes drop {
-  0% {
-    transform: translateY(-200px);
+  from {
+    transform: translateY(0);
   }
-  100% {
-    transform: translateY(100vh);
+  to {
+    transform: translateY(-50vh);
   }
 }
 
@@ -49,6 +61,27 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-50px);
+    transform: translateY(-120px);
   }
+}
+@keyframes bubble-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(-400px);
+    opacity: 0;
+  }
+}
+.food-bubble-reset {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.food-bubble.food-bubble-reset {
+  animation: none;
 }
