@@ -50,7 +50,7 @@ export default function HomePage() {
       <div className="header">
         {/* Search Bar class */}
 
-        <Link to="./advancedSearch">
+        <Link to="/AdvancedSearch">
           <img
             src={process.env.PUBLIC_URL + "./search.jpeg"}
             alt="search Bar"

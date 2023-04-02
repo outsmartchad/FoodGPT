@@ -1,44 +1,100 @@
-import React, { useState } from "react";
-/* import "./SearchList.css"; */
+import React, { useState, useEffect } from "react";
 
 export default function AdvancedSearch() {
-  /* import getRestaurants from "./restaurantData"; */
-
-  /* const restaurants = getRestaurants(); */
-
-  /* const AdvancedSearch = () => {
+  const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchHistory, setSearchHistory] = useState([]);
+  const [mostHitRestaurant, setMostHitRestaurant] = useState("");
 
-  const handleChange = (event) => {
+  useEffect(() => {
+    fetch("https://manofdiligence.github.io/Restaurant.json")
+      .then((response) => response.json())
+      .then((result) => setData(result))
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    // Find most hit restaurant
+    let restaurantMap = new Map();
+    searchHistory.forEach((term) => {
+      data.forEach((restaurant) => {
+        if (restaurant.Name.toLowerCase().includes(term.toLowerCase())) {
+          let count = restaurantMap.get(restaurant.id) || 0;
+          restaurantMap.set(restaurant.id, count + 1);
+        }
+      });
+    });
+
+    let maxCount = 0;
+    let maxRestaurant = "";
+    restaurantMap.forEach((count, id) => {
+      if (count > maxCount) {
+        maxCount = count;
+        maxRestaurant = data.find((restaurant) => restaurant.id === id);
+      }
+    });
+    setMostHitRestaurant(maxRestaurant);
+  }, [searchHistory, data]);
+
+  function handleSearchChange(event) {
     setSearchTerm(event.target.value);
-  };
+  }
 
-  const filteredRestaurants = restaurants.filter((restaurant) =>
-    restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())
-  ); */
+  function handleClearSearch() {
+    setSearchTerm("");
+    setSearchHistory([]);
+  }
 
-  return {
-    /* <div className="search-list">
-      <input
-        type="text"
-        placeholder="Search restaurants"
-        value={searchTerm}
-        onChange={handleChange}
-        className="search-input"
-      />
-      <ul className="restaurant-list">
-        {filteredRestaurants.map((restaurant) => (
-          <li key={restaurant.id} className="restaurant">
-            <div className="restaurant-info">
-              <h2>{restaurant.name}</h2>
-              <p>{restaurant.cuisine}</p>
-            </div>
-            <div className="restaurant-image">
-              <img src={restaurant.image} alt={restaurant.name} />
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div> */
-  };
+  function handleSearchHistory(restaurantName) {
+    if (!searchHistory.includes(restaurantName)) {
+      setSearchHistory((prevHistory) => [...prevHistory, restaurantName]);
+    }
+  }
+
+  return (
+    <div>
+      <h1>Advanced Search</h1>
+      <div>
+        <input
+          type="text"
+          placeholder="Search restaurants by name or description"
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <button onClick={handleClearSearch}>清除</button>
+      </div>
+      {searchTerm !== "" && (
+        <div>
+          {data
+            .filter((restaurant) =>
+              restaurant.Name.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((restaurant) => (
+              <div key={restaurant.id}>
+                <h2 onClick={() => handleSearchHistory(restaurant.Name)}>
+                  {restaurant.Name}
+                </h2>
+                {searchHistory.includes(restaurant.Name) && (
+                  <div>
+                    <h3>歷史記錄:</h3>
+                    <ul>
+                      {searchHistory.map((term, index) => (
+                        <li key={index}>{term}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
+        </div>
+      )}
+      {mostHitRestaurant && (
+        <div>
+          <h2>熱門餐廳:</h2>
+          <p>{mostHitRestaurant.Name}</p>
+        </div>
+      )}
+    </div>
+  );
 }
