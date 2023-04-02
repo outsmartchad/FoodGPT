@@ -54,7 +54,10 @@ export default function AdvancedSearch() {
 
   return (
     <div>
-      <h1>Advanced Search</h1>
+      <div className="header2">
+        <h1>Advanced Search</h1>
+      </div>
+      <div className="container2">   
       <div>
         <input
           type="text"
@@ -64,6 +67,9 @@ export default function AdvancedSearch() {
         />
         <button onClick={handleClearSearch}>清除</button>
       </div>
+      </div>
+
+      <div className="container2">  
       {searchTerm !== "" && (
         <div>
           {data
@@ -77,6 +83,7 @@ export default function AdvancedSearch() {
                 </h2>
                 {searchHistory.includes(restaurant.Name) && (
                   <div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <h3>歷史記錄:</h3>
                     <ul>
                       {searchHistory.map((term, index) => (
@@ -89,12 +96,15 @@ export default function AdvancedSearch() {
             ))}
         </div>
       )}
+      </div> 
+      <div className="container2">
       {mostHitRestaurant && (
         <div>
           <h2>熱門餐廳:</h2>
           <p>{mostHitRestaurant.Name}</p>
         </div>
       )}
+      </div>
     </div>
   );
 }
