@@ -31,7 +31,7 @@ export default function Personal() {
 
   return (
     <div className="personal-container">
-      <div className="header">
+      <div className="title">
         <h1>個人資料</h1>
       </div>
       <div className="content-container">
@@ -108,97 +108,121 @@ export default function Personal() {
           )}
         </div>
       </div>
+      
       <style jsx>{`
         .personal-container {
-          background-image: url("/background-image.jpg");
-          background-size: cover;
-          background-position: center;
-          color: #000000;
+          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+          padding: 2rem;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          max-width: 600px;
+          margin: 3rem auto;
           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-        .header {
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+        }
+
+   
+        .title {
+          font-size:2rem;
+          font-weight:bold;
+          margin-bottom:20px;
+          color:#000
+        }
+
+        .content-container {
+          background-color: #ffffff;
           padding: 2rem;
-          background: linear-gradient(to bottom right, #00FF00, #00FF00);
-          text-align: center;
-          font-size: 
-16px;
-font-weight: bold;
-}
-.content-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 3rem;
-}
+          border-radius: 0 0 10px 10px;
+        }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+        .info {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          margin-bottom: 1rem;
+        }
 
-p {
-  margin-bottom: 1.5rem;
-  font-size: 1.2rem;
-}
+        p {
+          margin-bottom: 1rem;
+          font-size: 1.2rem;
+        }
 
-strong {
-  font-weight: bold;
-}
+        strong {
+          font-weight: bold;
+          margin-right: 10px;
+        }
 
-input[type="text"],
-input[type="email"],
-input[type="number"] {
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  width: 100%;
-}
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+          padding: 0.5rem;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 1rem;
+          width: 100%;
+        }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus {
-  outline: none;
-  border: 2px solid #00FF00;
-}
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus {
+          outline: none;
+          border-color: #0072ff;
+        }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.5rem;
-}
+        .button-container {
+          display: flex;
+          justify-content: flex-end;
+        }
 
-.edit-btn,
-.save-btn {
-  padding: 0.5rem 1rem;
-  margin-right: 1rem;
-  background-color: #00FF00;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
+        .buttons {
+          display: flex;
+        }
 
-.edit-btn:hover,
-.save-btn:hover {
-  background-color: #006666;
-}
+        button {
+          padding: 10px 20px;
+          font-size: 1rem;
+          font-weight: bold;
+          border-radius: 5px;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          transition: background-color 0.3s;
+        }
 
-.cancel-btn {
-  padding: 0.5rem 1rem;
-  background-color: #00FF00;
-  color: #fff;
-  border: 2px solid #00FF00;
-  cursor: pointer;
-}
+        .edit-btn {
+          background-color: #0072ff;
+          color: #ffffff;
+        }
 
-.cancel-btn:hover {
-  background-color: #006666;
-  color: #fff;
-}
-`}</style>
-</div>
-);
+        .edit-btn:hover {
+          background-color: #0058cc;
+        }
+
+        .save-btn {
+          background-color: #4caf50;
+          color: #ffffff;
+        }
+
+        .save-btn:hover {
+          background-color: #39913c;
+        }
+
+        .cancel-btn {
+          background-color: #f44336;
+          color: #ffffff;
+          margin-left: 10px;
+        }
+
+        .cancel-btn:hover {
+          background-color: #cc2f2a;
+        }
+      `}</style>
+    </div>
+  );
 }
