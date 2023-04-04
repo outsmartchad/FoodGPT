@@ -4,21 +4,23 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-// array for storing all the area in Hong Kong
 
 export default function HomePage() {
-  // Default value for the dropdown: Area
-  // setSelectedOption is a arrow function
-  // that set the default "state" to be the selectionOption's value
   const [selectedOption, setSelectedOption] = useState("Area");
   const [area, setArea] = useState([]);
   const [data, setData] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const localFavorites = localStorage.getItem("favorites");
+    return localFavorites ? JSON.parse(localFavorites) : [];
+  });
+
   useEffect(() => {
     fetch("https://manofdiligence.github.io/Restaurant.json")
       .then((response) => response.json())
       .then((result) => setData(result))
       .catch((err) => console.error(err));
   }, []);
+
   useEffect(() => {
     fetch("https://manofdiligence.github.io/Areas.json")
       .then((response) => response.json())
@@ -26,13 +28,23 @@ export default function HomePage() {
       .catch((err) => console.error(err));
   }, []);
 
-  // change the dropdown's title whenever the user selected other area
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
   const handleSelectChange = (eventKey) => {
-    const selectedValue = eventKey;
-    setSelectedOption(selectedValue);
-    // print to see whether we get the value that chosen by the user
-    console.log(selectedValue); // You can replace this with your desired function to handle the selected area
+    setSelectedOption(eventKey);
   };
+
+  const toggleFavorite = (restaurant) => {
+    const isFavorite = favorites.some((fav) => fav.id === restaurant.id);
+    if (isFavorite) {
+      setFavorites(favorites.filter((fav) => fav.id !== restaurant.id));
+    } else {
+      setFavorites([...favorites, restaurant]);
+    }
+  };
+
   return (
     <div>
       <div>
@@ -78,14 +90,22 @@ export default function HomePage() {
       <div>
         <h2>餐廳資訊</h2>
       </div>
-      {/*  restaurant info generator */}
-      {data.map((item, index) => (
-        <div key={index} id={item.id} className="container2">
-          <h2>{item.Name}</h2>
-          <img src={item.Image} alt="rest photo" width="300px" />
-          <p>{item.Area}</p>
-        </div>
-      ))}
+      <div>
+      {/* Other components and elements */}
+      {data.map((item, index) => {
+        const isFavorite = favorites.some((fav) => fav.id === item.id);
+        return (
+          <div key={index} id={item.id} className="container2">
+            <h2>{item.Name}</h2>
+            <img src={item.Image} alt="rest photo" width="300px" />
+            <p>{item.Area}</p>
+            <button onClick={() => toggleFavorite(item)}>
+              {isFavorite ? "⭐️" : "☆"}
+            </button>
+          </div>
+        );
+      })}
+    </div>
     </div>
   );
 }
