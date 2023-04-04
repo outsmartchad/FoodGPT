@@ -100,12 +100,20 @@ export default function HomePage() {
             <img src={item.Image} alt="rest photo" width="300px" />
             <p>{item.Area}</p>
             <button onClick={() => toggleFavorite(item)}>
-              {isFavorite ? "⭐️" : "☆"}
+              {isFavorite ? "⭐️" : "★"}
             </button>
           </div>
         );
       })}
     </div>
+    <style jsx>{`
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+        }
+        `}</style>
     </div>
   );
 }
