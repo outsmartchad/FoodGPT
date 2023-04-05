@@ -68,7 +68,7 @@ export default function HomePage() {
             <div className="fullscreen" onClick={toggleLoginPopup}></div>
             <div id="Loginpopup" className="visibleArea">
               <h1>登入</h1>
-              <input type="text" placeholder="電話號碼/電子郵件/會員名" />
+              <input type="text" placeholder="電話號碼/電子郵件" />
               <h1></h1>
               <input type="text" placeholder="密碼" />
               <h1></h1>
