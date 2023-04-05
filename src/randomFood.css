@@ -34,6 +34,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 
 .food-bubble-random {
@@ -84,4 +87,17 @@
 
 .food-bubble.food-bubble-reset {
   animation: none;
+}
+
+.food-bubble-reset {
+  animation-name: food-bubble-reset-animation;
+}
+
+@keyframes food-bubble-reset-animation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200%);
+  }
 }

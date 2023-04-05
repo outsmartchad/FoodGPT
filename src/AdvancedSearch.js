@@ -54,47 +54,57 @@ export default function AdvancedSearch() {
 
   return (
     <div>
-      <h1>Advanced Search</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="Search restaurants by name or description"
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-        <button onClick={handleClearSearch}>清除</button>
+      <div className="header2">
+        <h1>Advanced Search</h1>
       </div>
-      {searchTerm !== "" && (
+      <div className="container2">
         <div>
-          {data
-            .filter((restaurant) =>
-              restaurant.Name.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            .map((restaurant) => (
-              <div key={restaurant.id}>
-                <h2 onClick={() => handleSearchHistory(restaurant.Name)}>
-                  {restaurant.Name}
-                </h2>
-                {searchHistory.includes(restaurant.Name) && (
-                  <div>
-                    <h3>歷史記錄:</h3>
-                    <ul>
-                      {searchHistory.map((term, index) => (
-                        <li key={index}>{term}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ))}
+          <input
+            type="text"
+            placeholder="Search restaurants by name or description"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <button onClick={handleClearSearch}>清除</button>
         </div>
-      )}
-      {mostHitRestaurant && (
-        <div>
-          <h2>熱門餐廳:</h2>
-          <p>{mostHitRestaurant.Name}</p>
-        </div>
-      )}
+      </div>
+
+      <div className="container2">
+        {searchTerm !== "" && (
+          <div>
+            {data
+              .filter((restaurant) =>
+                restaurant.Name.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+              .map((restaurant) => (
+                <div key={restaurant.id}>
+                  <h2 onClick={() => handleSearchHistory(restaurant.Name)}>
+                    {restaurant.Name}
+                  </h2>
+                  {searchHistory.includes(restaurant.Name) && (
+                    <div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <h3>歷史記錄:</h3>
+                      <ul>
+                        {searchHistory.map((term, index) => (
+                          <li key={index}>{term}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ))}
+          </div>
+        )}
+      </div>
+      <div className="container2">
+        {mostHitRestaurant && (
+          <div>
+            <h2>熱門餐廳:</h2>
+            <p>{mostHitRestaurant.Name}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
