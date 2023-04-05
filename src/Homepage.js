@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 
 export default function HomePage() {
   const [selectedOption, setSelectedOption] = useState("Area");
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [area, setArea] = useState([]);
   const [data, setData] = useState([]);
   const [favorites, setFavorites] = useState(() => {
@@ -33,6 +34,9 @@ export default function HomePage() {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
+  const toggleLoginPopup = () => {
+    setShowLoginPopup(!showLoginPopup);
+  };
   const handleSelectChange = (eventKey) => {
     setSelectedOption(eventKey);
   };
@@ -56,6 +60,24 @@ export default function HomePage() {
             </Dropdown.Item>
           ))}
         </DropdownButton>
+      </div>
+      <div className="Login">
+        <Button onClick={toggleLoginPopup}>{"Login/Logout"}</Button>
+        {showLoginPopup && (
+          <>
+            <div className="fullscreen" onClick={toggleLoginPopup}></div>
+            <div id="Loginpopup" className="visibleArea">
+              <h1>登入</h1>
+              <input type="text" placeholder="電話號碼/電子郵件/會員名" />
+              <h1></h1>
+              <input type="text" placeholder="密碼" />
+              <h1></h1>
+              <Button>
+                <h1>{"登入"}</h1>
+              </Button>
+            </div>
+          </>
+        )}
       </div>
       <div className="header">
         <div className="search-bar">
@@ -109,7 +131,7 @@ export default function HomePage() {
           font-family: Arial, sans-serif;
           margin: 0;
           padding: 20px;
-          background-image: linear-gradient(to right, #FF8EFF, #84C1FF);
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
         }
 
         .header {
