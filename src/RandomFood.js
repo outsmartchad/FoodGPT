@@ -45,7 +45,7 @@ export default function RandomFood() {
 
   return (
     <div>
-      <div className="header2">
+      <div className="head">
         <h1>唔知食咩好?</h1>
       </div>
       <div className="container2">
@@ -86,6 +86,17 @@ export default function RandomFood() {
           <div className="backToHomeBtn">↩️ 返去主頁面</div>
         </Link>
       </div>
+      <style jsx>{`
+        .head {
+          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+        }
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+        }
+        `}</style>
     </div>
   );
 }

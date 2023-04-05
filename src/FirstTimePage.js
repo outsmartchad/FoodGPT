@@ -5,8 +5,8 @@ export default function FirstTimePage() {
   return (
     <div>
       <div>
-          <div className="header2">
-            <p>First time?</p>
+          <div className="head">
+            <h1>First time?</h1>
           </div>
           <img
             className="center"
@@ -40,6 +40,17 @@ export default function FirstTimePage() {
             <p>**FoodGPT 向所有用戶免費開放</p>
           </div>
         </div>
+        <style jsx>{`
+        .head {
+          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+        }
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+        }
+        `}</style>
     </div>
   );
 }

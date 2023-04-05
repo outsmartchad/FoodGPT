@@ -10,7 +10,6 @@ import FirstTimePage from "./FirstTimePage";
 import Preference from "./Preference";
 import NearRestaurant from "./NearRestaurant";
 import RankingClass from "./RankingClass";
-import AdvancedSearch from "./AdvancedSearch";
 
 function App() {
   return (
@@ -45,7 +44,6 @@ function App() {
         <Routes> can be accessed by even other js file*/}
         <Routes>
           <Route path="/" element={<FirstTimePage />} />
-          <Route path="/AdvancedSearch" element={<AdvancedSearch />} />
           <Route path="/Preference" element={<Preference />} />
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="/Collection" element={<Collection />} />
