@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 export default function HomePage() {
-  const [selectedOption, setSelectedOption] = useState("Area");
+  const [selectedOption, setSelectedOption] = useState("地區");
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [area, setArea] = useState([]);
   const [data, setData] = useState([]);
@@ -38,6 +38,7 @@ export default function HomePage() {
     setShowLoginPopup(!showLoginPopup);
   };
   const handleSelectChange = (eventKey) => {
+    console.log(eventKey);
     setSelectedOption(eventKey);
   };
 
@@ -55,14 +56,14 @@ export default function HomePage() {
       <div>
         <DropdownButton title={selectedOption} onSelect={handleSelectChange}>
           {area.map((item, index) => (
-            <Dropdown.Item key={index} eventKey={item}>
+            <Dropdown.Item key={index} eventKey={item} value={item}>
               {item}
             </Dropdown.Item>
           ))}
         </DropdownButton>
       </div>
       <div className="Login">
-        <Button onClick={toggleLoginPopup}>{"Login/Logout"}</Button>
+        <Button onClick={toggleLoginPopup}>{"登入/登出"}</Button>
         {showLoginPopup && (
           <>
             <div className="fullscreen" onClick={toggleLoginPopup}></div>
@@ -98,10 +99,12 @@ export default function HomePage() {
               alt="c1"
             />
           </Link>
+          <h2>附近餐廳</h2>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <Link to="/RankingClass">
             <img width="80" src={process.env.PUBLIC_URL + "/c3.png"} alt="c3" />
           </Link>
+          <h2>餐廳排名</h2>
         </p>
       </div>
       <div>
