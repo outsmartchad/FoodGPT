@@ -1,6 +1,6 @@
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -8,8 +8,48 @@ import { Button } from "react-bootstrap";
 export default function HomePage() {
   const [selectedOption, setSelectedOption] = useState("地區");
   const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const [showCreateAcPopup, setShowCreateAcPopup] = useState(false);
+  const emailInputRef = useRef(null);
+  const passwordInputRef = useRef(null);
   const [area, setArea] = useState([]);
   const [data, setData] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+
+  const handleUserLogin = () => {
+    // Add your login logic here
+    setShowLoginPopup(true);
+  };
+  const handleCreateAc = () => {
+    // Add your login logic here
+    setShowCreateAcPopup(true);
+  };
+  const handleLogin = () => {
+    const email = emailInputRef.current.value;
+    const password = passwordInputRef.current.value;
+
+    if (!email || !password) {
+      alert("Please enter a valid email and password.");
+      return;
+    }
+
+    setLoggedIn(true);
+    setUsername(emailInputRef.current.value);
+  };
+  const handleLogout = () => {
+    // Add your logout logic here
+    setLoggedIn(false);
+    setShowCreateAcPopup(false);
+    setShowLoginPopup(false);
+    setUsername("");
+  };
+
+  const handleCreateAccountSubmit = () => {
+    // Add your create account submit logic here
+
+    setLoggedIn(true);
+    setUsername("username"); // Set the username here
+  };
   const [favorites, setFavorites] = useState(() => {
     const localFavorites = localStorage.getItem("favorites");
     return localFavorites ? JSON.parse(localFavorites) : [];
@@ -37,6 +77,9 @@ export default function HomePage() {
   const toggleLoginPopup = () => {
     setShowLoginPopup(!showLoginPopup);
   };
+  const toggleCreateAcPopup = () => {
+    setShowCreateAcPopup(!showCreateAcPopup);
+  };
   const handleSelectChange = (eventKey) => {
     console.log(eventKey);
     setSelectedOption(eventKey);
@@ -63,23 +106,59 @@ export default function HomePage() {
         </DropdownButton>
       </div>
       <div className="Login">
-        <Button onClick={toggleLoginPopup}>{"登入/登出"}</Button>
-        {showLoginPopup && (
-          <>
-            <div className="fullscreen" onClick={toggleLoginPopup}></div>
-            <div id="Loginpopup" className="visibleArea">
-              <h1>登入</h1>
-              <input type="text" placeholder="電話號碼/電子郵件" />
-              <h1></h1>
-              <input type="text" placeholder="密碼" />
-              <h1></h1>
-              <Button>
-                <h1>{"登入"}</h1>
-              </Button>
-            </div>
-          </>
+        {loggedIn ? (
+          <div>
+            <span>{username}</span>
+            <Button onClick={handleLogout}>登出</Button>
+          </div>
+        ) : (
+          <div>
+            <Button onClick={handleCreateAc}>Create Account</Button>
+            {showCreateAcPopup && (
+              <>
+                <div className="fullscreen" onClick={toggleCreateAcPopup}></div>
+                <div id="Loginpopup" className="visibleArea">
+                  {/* Add your create account form here */}
+                  <h1>登入</h1>
+                  <input type="text" placeholder="用戶名" ref={emailInputRef} />
+                  <h1></h1>
+                  <input
+                    type="text"
+                    placeholder="密碼"
+                    ref={passwordInputRef}
+                  />
+                  <h1></h1>
+                  <Button onClick={handleLogin}>
+                    <h1>{"Submit"}</h1>
+                  </Button>
+                </div>
+              </>
+            )}
+            <Button onClick={handleUserLogin}>登入</Button>
+            {showLoginPopup && (
+              <>
+                <div className="fullscreen" onClick={toggleLoginPopup}></div>
+                <div id="Loginpopup" className="visibleArea">
+                  {/* Add your create account form here */}
+                  <h1>登入</h1>
+                  <input type="text" placeholder="用戶名" ref={emailInputRef} />
+                  <h1></h1>
+                  <input
+                    type="text"
+                    placeholder="密碼"
+                    ref={passwordInputRef}
+                  />
+                  <h1></h1>
+                  <Button onClick={handleLogin}>
+                    <h1>{"登入"}</h1>
+                  </Button>
+                </div>
+              </>
+            )}
+          </div>
         )}
       </div>
+
       <div className="header">
         <div className="search-bar">
           <input
