@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 export default function HomePage() {
-  const [selectedOption, setSelectedOption] = useState("地區");
+  const [selectedOption, setSelectedOption] = useState("黃埔");
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showCreateAcPopup, setShowCreateAcPopup] = useState(false);
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const [area, setArea] = useState([]);
   const [data, setData] = useState([]);
+  const [dummyRestData, setDummyRestData] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
 
@@ -59,7 +60,7 @@ export default function HomePage() {
   useEffect(() => {
     fetch("https://manofdiligence.github.io/Restaurant.json")
       .then((response) => response.json())
-      .then((result) => setData(result))
+      .then((result) => (setDummyRestData(result), setData(result["黃埔"])))
       .catch((err) => console.error(err));
   }, []);
 
@@ -82,6 +83,7 @@ export default function HomePage() {
   };
   const handleSelectChange = (eventKey) => {
     console.log(eventKey);
+    setData(dummyRestData[eventKey]);
     setSelectedOption(eventKey);
   };
 
@@ -192,15 +194,17 @@ export default function HomePage() {
       <div>
         {data
           .filter((item) =>
-            item.Name.toLowerCase().includes(searchTerm.toLowerCase())
+            item.name.toLowerCase().includes(searchTerm.toLowerCase())
           )
           .map((item, index) => {
             const isFavorite = favorites.some((fav) => fav.id === item.id);
             return (
-              <div key={index} id={item.id} className="container2">
-                <h2>{item.Name}</h2>
-                <img src={item.Image} alt="rest photo" width="300px" />
-                <p>{item.Area}</p>
+              <div key={index} className="container2">
+                <h2>{item.name}</h2>
+                <h2>{item.type}</h2>
+                <img src={item.image} alt="rest photo" width="300px" />
+                <p>{item.district}</p>
+                <p>{item.address}</p>
                 <button onClick={() => toggleFavorite(item)}>
                   {isFavorite ? "⭐️" : "★"}
                 </button>
