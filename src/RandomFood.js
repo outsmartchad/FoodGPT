@@ -59,7 +59,7 @@ export default function RandomFood() {
         )}
       </div>
       <div className="container2">
-        <Button onClick={RandomFoodGenerator}>Food</Button>
+        <Button onClick={RandomFoodGenerator}>是但啦</Button>
         {clicked && (
           <div>
             <div id="food-animation">
@@ -86,7 +86,7 @@ export default function RandomFood() {
           <div className="backToHomeBtn">↩️ 返去主頁面</div>
         </Link>
       </div>
-      <style jsx>{`
+      <style jsx={true}>{`
         .head {
           background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
         }

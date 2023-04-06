@@ -38,7 +38,7 @@ export default function FirstTimePage() {
           <p>**FoodGPT 向所有用戶免費開放</p>
         </div>
       </div>
-      <style jsx>{`
+      <style jsx={true}>{`
         .head {
           background-image: linear-gradient(to right, #ff8eff, #84c1ff);
         }

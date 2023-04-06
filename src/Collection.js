@@ -17,10 +17,12 @@ export default function Collection() {
         <h1>收藏</h1>
       </div>
       {favorites.map((item, index) => (
-        <div key={index} id={item.id} className="container2">
-          <h2>{item.Name}</h2>
-          <img src={item.Image} alt="rest photo" width="300px" />
-          <p>{item.Area}</p>
+        <div key={index} className="container2">
+          <h2>{item.name}</h2>
+          <h2>{item.type}</h2>
+          <img src={item.image} alt="rest photo" width="300px" />
+          <h2>{item.district}</h2>
+          <h2>{item.address}</h2>
         </div>
       ))}
       <div className="header">
@@ -29,17 +31,17 @@ export default function Collection() {
         </Link>
       </div>
 
-      <style jsx>{`
+      <style jsx={true}>{`
         .head {
-          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
         }
         body {
           font-family: Arial, sans-serif;
           margin: 0;
           padding: 20px;
-          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
         }
-        `}</style>
+      `}</style>
     </div>
   );
 }

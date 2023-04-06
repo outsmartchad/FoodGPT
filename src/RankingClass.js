@@ -15,7 +15,7 @@ export default function RankingClass() {
           <div className="backToHomeBtn">↩️ 返去主頁面</div>
         </Link>
       </div>
-      <style jsx>{`
+      <style jsx={true}>{`
         .head {
           background-image: linear-gradient(to right, #ff8eff, #84c1ff);
         }

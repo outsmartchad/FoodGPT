@@ -5,7 +5,7 @@ export default function Personal() {
     name: "So Chi Wang",
     email: "Sogo@example.com",
     age: 20,
-    address: "35 BARKER ROAD"
+    address: "35 BARKER ROAD",
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -25,7 +25,7 @@ export default function Personal() {
     const { name, value } = e.target;
     setUserData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -108,10 +108,10 @@ export default function Personal() {
           )}
         </div>
       </div>
-      
-      <style jsx>{`
+
+      <style jsx={true}>{`
         .personal-container {
-          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
           padding: 2rem;
           border-radius: 10px;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -124,15 +124,14 @@ export default function Personal() {
           font-family: Arial, sans-serif;
           margin: 0;
           padding: 20px;
-          background-image: linear-gradient(to right, #FF8EFF, 	#84C1FF);
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
         }
 
-   
         .title {
-          font-size:2rem;
-          font-weight:bold;
-          margin-bottom:20px;
-          color:#000
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 20px;
+          color: #000;
         }
 
         .content-container {

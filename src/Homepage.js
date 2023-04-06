@@ -30,7 +30,7 @@ export default function HomePage() {
     const password = passwordInputRef.current.value;
 
     if (!email || !password) {
-      alert("Please enter a valid email and password.");
+      alert("你未填帳號密碼!");
       return;
     }
 
@@ -88,9 +88,9 @@ export default function HomePage() {
   };
 
   const toggleFavorite = (restaurant) => {
-    const isFavorite = favorites.some((fav) => fav.id === restaurant.id);
+    const isFavorite = favorites.some((fav) => fav.name === restaurant.name);
     if (isFavorite) {
-      setFavorites(favorites.filter((fav) => fav.id !== restaurant.id));
+      setFavorites(favorites.filter((fav) => fav.name !== restaurant.name));
     } else {
       setFavorites([...favorites, restaurant]);
     }
@@ -115,7 +115,7 @@ export default function HomePage() {
           </div>
         ) : (
           <div>
-            <Button onClick={handleCreateAc}>Create Account</Button>
+            <Button onClick={handleCreateAc}>建立帳戶</Button>
             {showCreateAcPopup && (
               <>
                 <div className="fullscreen" onClick={toggleCreateAcPopup}></div>
@@ -131,7 +131,7 @@ export default function HomePage() {
                   />
                   <h1></h1>
                   <Button onClick={handleLogin}>
-                    <h1>{"Submit"}</h1>
+                    <h1>{"就咁囉"}</h1>
                   </Button>
                 </div>
               </>
@@ -172,21 +172,15 @@ export default function HomePage() {
         </div>
       </div>
       <div className="container2">
-        <p>
-          <Link to="/NearRestaurant">
-            <img
-              width="100"
-              src={process.env.PUBLIC_URL + "/c1.png"}
-              alt="c1"
-            />
-          </Link>
-          <h2>附近餐廳</h2>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link to="/RankingClass">
-            <img width="80" src={process.env.PUBLIC_URL + "/c3.png"} alt="c3" />
-          </Link>
-          <h2>餐廳排名</h2>
-        </p>
+        <Link to="/NearRestaurant">
+          <img width="100" src={process.env.PUBLIC_URL + "/c1.png"} alt="c1" />
+        </Link>
+        <h2>附近餐廳</h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to="/RankingClass">
+          <img width="80" src={process.env.PUBLIC_URL + "/c3.png"} alt="c3" />
+        </Link>
+        <h2>餐廳排名</h2>
       </div>
       <div>
         <h2>餐廳資訊</h2>
@@ -197,14 +191,14 @@ export default function HomePage() {
             item.name.toLowerCase().includes(searchTerm.toLowerCase())
           )
           .map((item, index) => {
-            const isFavorite = favorites.some((fav) => fav.id === item.id);
+            const isFavorite = favorites.some((fav) => fav.name === item.name);
             return (
               <div key={index} className="container2">
                 <h2>{item.name}</h2>
                 <h2>{item.type}</h2>
                 <img src={item.image} alt="rest photo" width="300px" />
-                <p>{item.district}</p>
-                <p>{item.address}</p>
+                <h2>{item.district}</h2>
+                <h2>{item.address}</h2>
                 <button onClick={() => toggleFavorite(item)}>
                   {isFavorite ? "⭐️" : "★"}
                 </button>
@@ -212,70 +206,75 @@ export default function HomePage() {
             );
           })}
       </div>
-      <style jsx>{`
-        body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 20px;
-          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
-        }
+      <div>
+        <style jsx={true}>
+          {" "}
+          {`
+            body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 20px;
+              background-image: linear-gradient(to right, #ff8eff, #84c1ff);
+            }
 
-        .header {
-          display: flex;
-          justify-content: center;
-          margin: 20px 0;
-        }
+            .header {
+              display: flex;
+              justify-content: center;
+              margin: 20px 0;
+            }
 
-        .search-bar {
-          width: 50%;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+            .search-bar {
+              width: 50%;
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
 
-        .search-bar input {
-          width: 100%;
-          padding: 10px;
-          font-size: 18px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          box-sizing: border-box;
-        }
-        .container2 {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-around;
-          background-color: #fff;
-          border-radius: 8px;
-          margin: 10px 0;
-          padding: 20px;
-        }
+            .search-bar input {
+              width: 100%;
+              padding: 10px;
+              font-size: 18px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              box-sizing: border-box;
+            }
+            .container2 {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-around;
+              background-color: #fff;
+              border-radius: 8px;
+              margin: 10px 0;
+              padding: 20px;
+            }
 
-        h2 {
-          margin: 0;
-        }
+            h2 {
+              margin: 0;
+            }
 
-        p {
-          margin: 0;
-        }
+            p {
+              margin: 0;
+            }
 
-        img {
-          border-radius: 8px;
-        }
+            img {
+              border-radius: 8px;
+            }
 
-        button {
-          background-color: transparent;
-          border: none;
-          font-size: 24px;
-          cursor: pointer;
-        }
+            button {
+              background-color: transparent;
+              border: none;
+              font-size: 24px;
+              cursor: pointer;
+            }
 
-        button:focus {
-          outline: none;
-        }
-      `}</style>
+            button:focus {
+              outline: none;
+            }
+          `}
+        </style>
+      </div>
     </div>
   );
 }
