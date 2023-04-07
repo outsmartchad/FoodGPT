@@ -2,10 +2,10 @@ import { useState } from "react";
 
 export default function Personal() {
   const [userData, setUserData] = useState({
-    name: "So Chi Wang",
-    email: "Sogo@example.com",
-    age: 20,
-    address: "35 BARKER ROAD",
+    name: localStorage.getItem("username"),
+    email: JSON.parse(localStorage.getItem("email")),
+    age: JSON.parse(localStorage.getItem("age")),
+    address: JSON.parse(localStorage.getItem("address")),
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -14,6 +14,10 @@ export default function Personal() {
   };
 
   const handleSave = () => {
+    localStorage.setItem("username", userData.name);
+    localStorage.setItem("email", JSON.stringify(userData.email));
+    localStorage.setItem("age", JSON.stringify(userData.age));
+    localStorage.setItem("address", JSON.stringify(userData.address));
     setIsEditing(false);
   };
 

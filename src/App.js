@@ -34,6 +34,7 @@ function App() {
             <Link to="/Information" className="CUI">
               消息
             </Link>
+
             <Link to="/Personal" className="CUI">
               個人資料
             </Link>

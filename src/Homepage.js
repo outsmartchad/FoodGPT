@@ -14,8 +14,13 @@ export default function HomePage() {
   const [area, setArea] = useState([]);
   const [data, setData] = useState([]);
   const [dummyRestData, setDummyRestData] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+  const [loggedIn, setLoggedIn] = useState(() => {
+    return localStorage.getItem("loggedIn") === "true";
+  });
+  const [username, setUsername] = useState(() => {
+    const localusername = localStorage.getItem("username");
+    return localusername ? JSON.parse(localusername) : "";
+  });
 
   const handleUserLogin = () => {
     // Add your login logic here
@@ -36,10 +41,12 @@ export default function HomePage() {
 
     setLoggedIn(true);
     setUsername(emailInputRef.current.value);
+    localStorage.setItem("loggedIn", JSON.stringify(true));
   };
   const handleLogout = () => {
     // Add your logout logic here
     setLoggedIn(false);
+    localStorage.setItem("loggedIn", JSON.stringify(false));
     setShowCreateAcPopup(false);
     setShowLoginPopup(false);
     setUsername("");
@@ -47,9 +54,17 @@ export default function HomePage() {
 
   const handleCreateAccountSubmit = () => {
     // Add your create account submit logic here
+    const email = emailInputRef.current.value;
+    const password = passwordInputRef.current.value;
+
+    if (!email || !password) {
+      alert("你未填帳號密碼!");
+      return;
+    }
 
     setLoggedIn(true);
-    setUsername("username"); // Set the username here
+    setUsername(emailInputRef.current.value);
+    localStorage.setItem("loggedIn", JSON.stringify(true));
   };
   const [favorites, setFavorites] = useState(() => {
     const localFavorites = localStorage.getItem("favorites");
@@ -74,7 +89,12 @@ export default function HomePage() {
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
-
+  useEffect(() => {
+    localStorage.setItem("username", JSON.stringify(username));
+  }, [username]);
+  useEffect(() => {
+    localStorage.setItem("login", loggedIn);
+  }, [loggedIn]);
   const toggleLoginPopup = () => {
     setShowLoginPopup(!showLoginPopup);
   };
@@ -125,12 +145,12 @@ export default function HomePage() {
                   <input type="text" placeholder="用戶名" ref={emailInputRef} />
                   <h1></h1>
                   <input
-                    type="text"
+                    type="password"
                     placeholder="密碼"
                     ref={passwordInputRef}
                   />
                   <h1></h1>
-                  <Button onClick={handleLogin}>
+                  <Button onClick={handleCreateAccountSubmit}>
                     <h1>{"就咁囉"}</h1>
                   </Button>
                 </div>
@@ -146,7 +166,7 @@ export default function HomePage() {
                   <input type="text" placeholder="用戶名" ref={emailInputRef} />
                   <h1></h1>
                   <input
-                    type="text"
+                    type="password"
                     placeholder="密碼"
                     ref={passwordInputRef}
                   />
