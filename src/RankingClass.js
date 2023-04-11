@@ -14,24 +14,28 @@ function RestaurantList() {
   }, []);
 
   useEffect(() => {
-    const scores = restaurants.map((restaurant) => ({
+    const scores = data.map((restaurant) => ({
       name: restaurant.name,
       popularity: restaurant.Popularity,
+      type: restaurant.type,
+      image: restaurant.image,
+      district: restaurant.district,
+      address: restaurant.address,
     }));
-    const sortedScores = scores.sort((a, b) => b.Popularity - a.Popularity);
+    const sortedScores = scores.sort((a, b) => b.popularity - a.popularity);
     setPopularityScores(sortedScores);
     setRestaurants(sortedScores.slice(0, 5));
-  }, []);
+  }, [data]);
 
   return (
     <div className="rankingList">
       <h2>五間最受歡迎嘅餐廳:</h2>
-      {data.map((item, index) => (
+      {restaurants.map((item, index) => (
         <div key={index} className="container2">
           <h2>{item.name}</h2>
           <h2>{item.type}</h2>
           <img src={item.image} alt="rest" width="300px" />
-          <h2>{item.Popularity}</h2>
+          <h2>{item.popularity}</h2>
           <h2>{item.district}</h2>
           <h2>{item.address}</h2>
         </div>
