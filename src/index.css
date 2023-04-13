@@ -27,11 +27,13 @@ nav a {
   color: black;
 }
 .navbar-wrapper {
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  background-color: #1c3455;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1c3455;
+    color: white;
+    text-align: center;
 }
 .backToHomeBtn {
   background-color: #1c3455;
