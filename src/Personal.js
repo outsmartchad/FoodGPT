@@ -121,7 +121,7 @@ export default function Personal() {
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           max-width: 600px;
           margin: 3rem auto;
-          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;zz
         }
 
         body {
@@ -141,7 +141,7 @@ export default function Personal() {
         .content-container {
           background-color: #ffffff;
           padding: 2rem;
-          border-radius: 0 0 10px 10px;
+          border-radius: 15px 15px 15px 15px;
         }
 
         .info {

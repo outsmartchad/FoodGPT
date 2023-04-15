@@ -40,7 +40,7 @@ export default function PreferencePage() {
 
   return (
     <div>
-      <div className="header2">
+      <div className="head">
         <h1>請選擇您喜愛的料理:</h1>
       </div>
 
@@ -61,7 +61,7 @@ export default function PreferencePage() {
         ))}
       </div>
 
-      <div className="container2">
+      <div className="header3">
         {selectedPreference.length === 0 ? (
           <div>
             <button
@@ -70,6 +70,7 @@ export default function PreferencePage() {
             >
               Confirm
             </button>
+            <h2> </h2>
             <h2>Please choose at least one choice!</h2>
           </div>
         ) : (
@@ -85,6 +86,17 @@ export default function PreferencePage() {
           </div>
         )}
       </div>
+      <style jsx={true}>{`
+        .head {
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
+        }
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
+        }
+      `}</style>
     </div>
   );
 }
