@@ -62,15 +62,31 @@ export default function NearRestaurants() {
     <div className="rankingList">
       <h2>{district ? `你所在嘅地址為： ${district}` : "Loading..."}</h2>
       {restaurants.map((item, index) => (
-        <div key={index} className="container2">
-          <h2>{item.name}</h2>
-          <h2>{item.type}</h2>
-          <img src={item.image} alt="rest" width="300px" />
-          <h2>{item.Popularity}</h2>
-          <h2>{item.district}</h2>
-          <h2>{item.address}</h2>
+        <div key={index} >
+        <div className="container2">
+        <h4>{item.district}</h4>
+                <h4>{item.name}</h4>
+                <h4>{item.type}</h4>
+        </div>
+        <div className="container2">
+        <img src={item.image} alt="rest" width="300px" />
+                <h4>{item.Popularity}</h4>
+               
+                <h4>{item.address}</h4>
+        </div>
         </div>
       ))}
+      <style jsx={true}>{`
+        .head {
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
+        }
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
+        }
+      `}</style>
     </div>
   );
 }
