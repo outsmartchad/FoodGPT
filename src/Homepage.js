@@ -215,25 +215,30 @@ export default function HomePage() {
           .map((item, index) => {
             const isFavorite = favorites.some((fav) => fav.name === item.name);
             return (
-              <div key={index} className="container2">
-                <h2>{item.name}</h2>
-                <h2>{item.type}</h2>
+              <div key={index}>
+                <div>
+                  <div className="container2">
+                    <h2>{item.Popularity}</h2>
+                    <h2>{item.district}</h2>
+                    <h2>{item.address}</h2>
+                  </div>
+                  <div className="container2">
+                    <img
+                      src={item.image}
+                      alt="rest photo"
+                      width="300px"
+                      onClick={() =>
+                        navigate("/Restaurant", { state: { Restaurant: item } })
+                      }
+                    />
+                    <h2>{item.name}</h2>
 
-                <img
-                  src={item.image}
-                  alt="rest photo"
-                  width="300px"
-                  onClick={() =>
-                    navigate("/Restaurant", { state: { Restaurant: item } })
-                  }
-                />
-
-                <h2>{item.district}</h2>
-                <h2>{item.address}</h2>
-
-                <button onClick={() => toggleFavorite(item)}>
-                  {isFavorite ? "⭐️" : "★"}
-                </button>
+                    <h2>{item.type}</h2>
+                    <button onClick={() => toggleFavorite(item)}>
+                      {isFavorite ? "⭐️" : "★"}
+                    </button>
+                  </div>
+                </div>
               </div>
             );
           })}
