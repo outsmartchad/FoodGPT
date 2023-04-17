@@ -234,8 +234,6 @@ export default function HomePage() {
                 <button onClick={() => toggleFavorite(item)}>
                   {isFavorite ? "⭐️" : "★"}
                 </button>
-                </div>
-                </div>
               </div>
             );
           })}
