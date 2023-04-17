@@ -1,6 +1,6 @@
 import "./index.css";
 import React from "react";
-import { Routes, BrowserRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import HomePage from "./Homepage";
 import RandomFood from "./RandomFood";
 import Collection from "./Collection";
@@ -10,6 +10,7 @@ import FirstTimePage from "./FirstTimePage";
 import Preference from "./Preference";
 import NearRestaurant from "./NearRestaurant";
 import RankingClass from "./RankingClass";
+import Restaurant from "./Restaurant";
 
 function App() {
   return (
@@ -34,7 +35,6 @@ function App() {
             <Link to="/Information" className="CUI">
               消息
             </Link>
-
             <Link to="/Personal" className="CUI">
               個人資料
             </Link>
@@ -45,6 +45,7 @@ function App() {
         <Routes> can be accessed by even other js file*/}
         <Routes>
           <Route path="/" element={<FirstTimePage />} />
+          <Route path="/Restaurant" element={<Restaurant />} />
           <Route path="/Preference" element={<Preference />} />
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="/Collection" element={<Collection />} />

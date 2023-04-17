@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 function RestaurantList() {
   const [restaurants, setRestaurants] = useState([]);
   const [popularityScores, setPopularityScores] = useState([]);
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://manofdiligence.github.io/Restaurant.json")
@@ -34,7 +35,14 @@ function RestaurantList() {
         <div key={index} className="container2">
           <h2>{item.name}</h2>
           <h2>{item.type}</h2>
-          <img src={item.image} alt="rest" width="300px" />
+          <img
+            src={item.image}
+            alt="rest"
+            width="300px"
+            onClick={() =>
+              navigate("/Restaurant", { state: { Restaurant: item } })
+            }
+          />
           <h2>{item.popularity}</h2>
           <h2>{item.district}</h2>
           <h2>{item.address}</h2>

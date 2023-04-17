@@ -2,10 +2,11 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState("黃埔");
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showCreateAcPopup, setShowCreateAcPopup] = useState(false);
@@ -14,6 +15,7 @@ export default function HomePage() {
   const [area, setArea] = useState([]);
   const [data, setData] = useState([]);
   const [dummyRestData, setDummyRestData] = useState([]);
+
   const [loggedIn, setLoggedIn] = useState(() => {
     return localStorage.getItem("loggedIn") === "true";
   });
@@ -216,9 +218,19 @@ export default function HomePage() {
               <div key={index} className="container2">
                 <h2>{item.name}</h2>
                 <h2>{item.type}</h2>
-                <img src={item.image} alt="rest photo" width="300px" />
+
+                <img
+                  src={item.image}
+                  alt="rest photo"
+                  width="300px"
+                  onClick={() =>
+                    navigate("/Restaurant", { state: { Restaurant: item } })
+                  }
+                />
+
                 <h2>{item.district}</h2>
                 <h2>{item.address}</h2>
+
                 <button onClick={() => toggleFavorite(item)}>
                   {isFavorite ? "⭐️" : "★"}
                 </button>

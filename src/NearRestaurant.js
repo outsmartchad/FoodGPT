@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function NearRestaurants() {
   const [district, setDistrict] = useState("");
   const [restaurants, setRestaurants] = useState([]);
   const [map, setMap] = useState(null);
+  const navigate = useNavigate();
 
   //locate the district
   useEffect(() => {
@@ -65,7 +66,14 @@ export default function NearRestaurants() {
         <div key={index} className="container2">
           <h2>{item.name}</h2>
           <h2>{item.type}</h2>
-          <img src={item.image} alt="rest" width="300px" />
+          <img
+            src={item.image}
+            alt="rest"
+            width="300px"
+            onClick={() =>
+              navigate("/Restaurant", { state: { Restaurant: item } })
+            }
+          />
           <h2>{item.Popularity}</h2>
           <h2>{item.district}</h2>
           <h2>{item.address}</h2>
