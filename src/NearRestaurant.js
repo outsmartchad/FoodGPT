@@ -79,6 +79,17 @@ export default function NearRestaurants() {
           <h2>{item.address}</h2>
         </div>
       ))}
+      <style jsx={true}>{`
+        .head {
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
+        }
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-image: linear-gradient(to right, #ff8eff, #84c1ff);
+        }
+      `}</style>
     </div>
   );
 }
