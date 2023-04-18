@@ -218,7 +218,6 @@ export default function HomePage() {
               <div key={index}>
                 <div>
                   <div className="container2">
-                    <h2>{item.Popularity}</h2>
                     <h2>{item.district}</h2>
                     <h2>{item.address}</h2>
                   </div>
