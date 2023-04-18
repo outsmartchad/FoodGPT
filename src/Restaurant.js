@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 export default function Restaurant() {
@@ -30,6 +30,11 @@ export default function Restaurant() {
                   <img src={restaurantData.image} alt="rest photo" width="300px" />
                   </div>
        </div>           
+       <div className="header">
+        <Link to="/HomePage">
+          <div className="backToHomeBtn">↩️ 返去主頁面</div>
+        </Link>
+      </div>
         <style jsx={true}>{`
         .head {
           background-image: linear-gradient(to right, #ff8eff, #84c1ff);
