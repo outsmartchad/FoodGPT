@@ -1,0 +1,103 @@
+#food-animation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 50px);
+}
+.food-bubble-hidden {
+  display: none;
+}
+
+.food-bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 128, 255);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  animation-name: drop;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+.food-bubble-random {
+  animation-name: rebound;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50vh);
+  }
+}
+
+@keyframes rebound {
+  0% {
+    transform: translateY(100vh);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-120px);
+  }
+}
+@keyframes bubble-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(-400px);
+    opacity: 0;
+  }
+}
+.food-bubble-reset {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.food-bubble.food-bubble-reset {
+  animation: none;
+}
+
+.food-bubble-reset {
+  animation-name: food-bubble-reset-animation;
+}
+
+@keyframes food-bubble-reset-animation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}

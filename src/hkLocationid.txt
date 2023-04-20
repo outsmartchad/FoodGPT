@@ -1,0 +1,50 @@
+const options = {
+    method: "GET",
+    url: "https://travel-advisor.p.rapidapi.com/locations/search",
+    params: {
+      query: "Hong Kong",
+      limit: "1",
+      offset: "0",
+      units: "km",
+      lang: "en_US",
+      currency: "HKD",
+    },
+    headers: {
+      "X-RapidAPI-Key": "4dd3f608e0msh8d2bbde31252f2ep11c876jsnd08f60c2465f",
+      "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+    },
+  };
+
+  axios
+    .request(options)
+    .then(function (response) {
+      const locationId = response.data.data[0].result_object.location_id;
+      console.log("Location ID for Hong Kong: " + locationId);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+
+    // HK location id: 294217
+
+
+
+const encodedParams = new URLSearchParams();
+encodedParams.append("language", "en_US");
+encodedParams.append("limit", "30");
+encodedParams.append("location_id", "294217");
+encodedParams.append("currency", "HKD");
+
+
+fetch('https://worldwide-restaurants.p.rapidapi.com/search', {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/x-www-form-urlencoded',
+		'X-RapidAPI-Key': '4dd3f608e0msh8d2bbde31252f2ep11c876jsnd08f60c2465f',
+		'X-RapidAPI-Host': 'worldwide-restaurants.p.rapidapi.com'
+	},
+	body: encodedParams
+})
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
