@@ -110,7 +110,11 @@ export default function Restaurant() {
         <div className="container2">
           <h1>{restaurantData.name}</h1>
           <img src={restaurantData.image} alt="rest photo" width="300px" />
-          <h2>{restaurantData.Intro}</h2>
+        </div>
+        <div className="container2">
+        <h1>介&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+        <h1>紹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+          <h3>{restaurantData.Intro}</h3>
         </div>
       </div>
       <div className="container2">
