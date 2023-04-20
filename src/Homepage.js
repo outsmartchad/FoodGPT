@@ -97,6 +97,15 @@ export default function HomePage() {
   useEffect(() => {
     localStorage.setItem("login", loggedIn);
   }, [loggedIn]);
+  useEffect(() => {
+    if (Object.keys(dummyRestData).length > 0) {
+      const option = localStorage.getItem("area");
+      const parsedOption = option === null ? "黃埔" : JSON.parse(option);
+
+      setSelectedOption(parsedOption);
+      setData(dummyRestData[parsedOption]);
+    }
+  }, [dummyRestData]);
   const toggleLoginPopup = () => {
     setShowLoginPopup(!showLoginPopup);
   };
@@ -107,6 +116,7 @@ export default function HomePage() {
     console.log(eventKey);
     setData(dummyRestData[eventKey]);
     setSelectedOption(eventKey);
+    localStorage.setItem("area", JSON.stringify(eventKey));
   };
 
   const toggleFavorite = (restaurant) => {

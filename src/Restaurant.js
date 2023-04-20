@@ -112,8 +112,12 @@ export default function Restaurant() {
           <img src={restaurantData.image} alt="rest photo" width="300px" />
         </div>
         <div className="container2">
-        <h1>介&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
-        <h1>紹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+          <h1>
+            介&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </h1>
+          <h1>
+            紹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </h1>
           <h3>{restaurantData.Intro}</h3>
         </div>
       </div>
@@ -121,7 +125,7 @@ export default function Restaurant() {
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           center={coords} // Update this line
-          zoom={12}
+          zoom={10}
           onLoad={onMapLoad}
         >
           <Marker position={markerPosition} />

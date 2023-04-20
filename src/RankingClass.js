@@ -8,9 +8,15 @@ function RestaurantList() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const areaName = localStorage.getItem("area");
+    const parsedAreaName = areaName === null ? "黃埔" : JSON.parse(areaName);
+
     fetch("https://manofdiligence.github.io/Restaurant.json")
       .then((response) => response.json())
-      .then((result) => setData(result["黃埔"]))
+      .then((result) => {
+        setData(result[parsedAreaName]);
+        setRestaurants(result[parsedAreaName].slice(0, 5));
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -22,9 +28,11 @@ function RestaurantList() {
       image: restaurant.image,
       district: restaurant.district,
       address: restaurant.address,
+      lat: restaurant.lat,
+      lng: restaurant.lng,
+      Intro: restaurant.Intro,
     }));
     const sortedScores = scores.sort((a, b) => b.popularity - a.popularity);
-    setPopularityScores(sortedScores);
     setRestaurants(sortedScores.slice(0, 5));
   }, [data]);
 
