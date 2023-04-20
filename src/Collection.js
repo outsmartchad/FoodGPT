@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Collection() {
   const [favorites, setFavorites] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const localFavorites = localStorage.getItem("favorites");
     if (localFavorites) {
@@ -20,7 +20,14 @@ export default function Collection() {
         <div key={index} className="container2">
           <h2>{item.name}</h2>
           <h2>{item.type}</h2>
-          <img src={item.image} alt="rest photo" width="300px" />
+          <img
+            src={item.image}
+            alt="rest photo"
+            width="300px"
+            onClick={() =>
+              navigate("/Restaurant", { state: { Restaurant: item } })
+            }
+          />
           <h2>{item.district}</h2>
           <h2>{item.address}</h2>
         </div>

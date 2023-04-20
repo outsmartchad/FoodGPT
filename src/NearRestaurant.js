@@ -1,10 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import {
+  GoogleMap,
+  Marker,
+  useLoadScript,
+  StandaloneSearchBox,
+} from "@react-google-maps/api";
+function Map() {
+  const libs = ["places"];
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: "AIzaSyC-daFg6CIm07-m9rfc0fdSVg7CaxMGvVI",
+    libraries: libs,
+  });
+
+  return { isLoaded, loadError };
+}
 export default function NearRestaurants() {
   const [district, setDistrict] = useState("");
   const [restaurants, setRestaurants] = useState([]);
+  const { isLoaded, loadError } = Map();
+  const mapRef = useRef();
+  const searchBoxRef = useRef();
   const [map, setMap] = useState(null);
   const navigate = useNavigate();
+  const [coords, setCoords] = useState({ lat: 0.0, lng: 0.0 });
+  const [showMap, setShowMap] = useState(false);
+
+  const handleClose = () => setShowMap(false);
+  const handleShow = () => setShowMap(true);
+
+  const handleClick = () => {
+    handleShow();
+  };
+  // ...
+  // x and y are the coordinates of the map center
+  const initialCoords = {
+    lat: coords.lat,
+    lng: coords.lng,
+  };
+
+  const libraries = ["places"];
+
+  const [markerPosition, setMarkerPosition] = useState(initialCoords);
 
   //locate the district
   useEffect(() => {
@@ -45,6 +83,16 @@ export default function NearRestaurants() {
     getLocation();
   }, []);
 
+  useEffect(() => {
+    if (mapRef.current) {
+      console.log("Map instance:", mapRef.current);
+    }
+  }, [mapRef]);
+
+  const onMapLoad = (mapInstance) => {
+    mapRef.current = mapInstance;
+  };
+
   //fetch our restaurant database
   useEffect(() => {
     if (!district) return;
@@ -58,10 +106,18 @@ export default function NearRestaurants() {
       })
       .catch((err) => console.error(err));
   }, [district]);
-
+  const mapContainerStyle = {
+    width: "100%",
+    height: "400px",
+  };
   return (
     <div className="rankingList">
-      <h2>{district ? `你所在嘅地址為： ${district}` : "Loading..."}</h2>
+      <h2>
+        {district ? `你所在嘅地址為： ${district}` : "Loading..."}
+        <p></p>
+        <Button onClick={handleClick}>點擊查看五個最近的餐廳的位置</Button>
+      </h2>
+
       {restaurants.map((item, index) => (
         <div key={index}>
           <div className="container2">
@@ -83,7 +139,27 @@ export default function NearRestaurants() {
           </div>
         </div>
       ))}
-
+      <Modal show={showMap} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Five NearRestaurant</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <GoogleMap
+            mapContainerStyle={mapContainerStyle}
+            center={coords} // Update this line
+            zoom={10}
+            onLoad={onMapLoad}
+          >
+            {restaurants.slice(0, 5).map((restaurant, index) => (
+              <Marker
+                key={index}
+                position={{ lat: restaurant.lat, lng: restaurant.lng }}
+                title={restaurant.name}
+              />
+            ))}
+          </GoogleMap>
+        </Modal.Body>
+      </Modal>
       <style jsx={true}>{`
         .head {
           background-image: linear-gradient(to right, #ff8eff, #84c1ff);
