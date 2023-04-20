@@ -278,9 +278,10 @@ div.container3 {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid black;
-  padding: 20px;
-  background-color: white;
+  padding: 30px 150px;
+  background-color: #dddddd;
   z-index: 1;
+  border-radius: 15px 15px 15px 15px;
 }
 
 .large-modal {

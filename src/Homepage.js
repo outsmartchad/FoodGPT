@@ -156,7 +156,7 @@ export default function HomePage() {
                 <div className="fullscreen" onClick={toggleCreateAcPopup}></div>
                 <div id="Loginpopup" className="visibleArea">
                   {/* Add your create account form here */}
-                  <h1>登入</h1>
+                  <h1>建立帳戶</h1>
                   <input type="text" placeholder="用戶名" ref={emailInputRef} />
                   <h1></h1>
                   <input
@@ -166,7 +166,7 @@ export default function HomePage() {
                   />
                   <h1></h1>
                   <Button onClick={handleCreateAccountSubmit}>
-                    <h1>{"就咁囉"}</h1>
+                    <h3>{"就咁囉"}</h3>
                   </Button>
                 </div>
               </>
@@ -187,7 +187,7 @@ export default function HomePage() {
                   />
                   <h1></h1>
                   <Button onClick={handleLogin}>
-                    <h1>{"登入"}</h1>
+                    <h3>{"登入"}</h3>
                   </Button>
                 </div>
               </>
