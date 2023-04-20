@@ -24,7 +24,8 @@ export default function NearRestaurants() {
   const searchBoxRef = useRef();
   const [map, setMap] = useState(null);
   const navigate = useNavigate();
-  const [coords, setCoords] = useState({ lat: 0.0, lng: 0.0 });
+
+  const [coords, setCoords] = useState({ lat: 22.410549, lng: 114.126456 });
   const [showMap, setShowMap] = useState(false);
 
   const handleClose = () => setShowMap(false);
@@ -141,7 +142,7 @@ export default function NearRestaurants() {
       ))}
       <Modal show={showMap} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Five NearRestaurant</Modal.Title>
+          <Modal.Title>五個最近的餐廳</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <GoogleMap
