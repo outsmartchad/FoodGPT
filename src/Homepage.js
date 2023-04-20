@@ -127,6 +127,9 @@ export default function HomePage() {
       setFavorites([...favorites, restaurant]);
     }
   };
+  const myFun = (e) => {
+    console.log("myFun");
+  };
 
   return (
     <div>
