@@ -28,13 +28,13 @@ nav a {
 }
 .navbar-wrapper {
   border-radius: 15px 15px 0px 0px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #1c3455;
-    color: white;
-    text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #1c3455;
+  color: white;
+  text-align: center;
 }
 .backToHomeBtn {
   background-color: #1c3455;
@@ -162,7 +162,6 @@ div.container2 {
   margin-bottom: 20px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  
 }
 
 div.container3 {
@@ -282,4 +281,9 @@ div.container3 {
   padding: 20px;
   background-color: white;
   z-index: 1;
+}
+
+.large-modal {
+  max-width: 300%;
+  max-height: 300%;
 }

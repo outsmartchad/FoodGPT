@@ -109,7 +109,8 @@ export default function NearRestaurants() {
   }, [district]);
   const mapContainerStyle = {
     width: "100%",
-    height: "400px",
+    height: "700px",
+    border: "2px solid black",
   };
   return (
     <div className="rankingList">
@@ -140,7 +141,12 @@ export default function NearRestaurants() {
           </div>
         </div>
       ))}
-      <Modal show={showMap} onHide={handleClose} centered>
+      <Modal
+        show={showMap}
+        onHide={handleClose}
+        centered
+        className="large-modal"
+      >
         <Modal.Header closeButton>
           <Modal.Title>五個最近的餐廳</Modal.Title>
         </Modal.Header>
