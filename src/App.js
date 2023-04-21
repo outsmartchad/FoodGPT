@@ -27,7 +27,8 @@ function App() {
             </Link>
             <Link to="/RandomFood" className="AUI">
               <img
-                width="100"
+                width="90"
+                height="90"
                 src={process.env.PUBLIC_URL + "/foodrandom.gif"}
                 alt="c1"
               />

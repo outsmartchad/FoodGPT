@@ -201,8 +201,8 @@ div.container3 {
 
 .CUI {
   display: inline-block;
-  padding: 10px 35px;
-  font-size: 24px;
+  padding: 5px 20px;
+  font-size: 18px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -212,6 +212,7 @@ div.container3 {
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
+  
 }
 
 .CUI:hover {
@@ -226,6 +227,7 @@ div.container3 {
 
 .AUI {
   background-color: #1c3455;
+  padding: 0px;
 }
 
 .container2:hover {
