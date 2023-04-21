@@ -1,6 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
-import "leaflet/dist/leaflet.css";
 import { LoadScript } from "@react-google-maps/api";
 import {
   GoogleMap,
