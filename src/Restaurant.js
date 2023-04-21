@@ -120,6 +120,11 @@ export default function Restaurant() {
           </h1>
           <h3>{restaurantData.Intro}</h3>
         </div>
+        <div className="container2">
+          <h1>價錢</h1>
+          <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+          <h3>{restaurantData.priceRange}</h3>
+        </div>
       </div>
       <div className="container2">
         <GoogleMap
