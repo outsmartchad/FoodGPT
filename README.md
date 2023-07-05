@@ -8,5 +8,9 @@ It is a simple restaurant searching website that utilizes Google map API to loca
 1. React JS
 2. vscode
 
+### Languages or frameworks
+1. Javascript
+2. Reactjs
+
 ### Database
 Since I don't familiar with some backend frameworks, so, I just hardcode the data of restaurants in JSON file in another repository on my GitHub and use the API method to fetch data to my app.
